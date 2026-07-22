@@ -15,7 +15,6 @@
         "cat2": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/2L1A7935.jpg",
             "label": "Best Sellers",
             "link": "shopify://collections/best-seller",
             "badge_label": "Best",
@@ -25,7 +24,6 @@
         "cat1": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/2L1A7829.jpg",
             "label": "New Arrivals",
             "link": "shopify://collections/new-arrival",
             "badge_label": "New",
@@ -35,7 +33,6 @@
         "cat6": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/Summer_sale_dhirair_1200_628.webp",
             "label": "Summer Sale",
             "link": "shopify://collections/best-seller",
             "badge_label": "Sale",
@@ -45,7 +42,6 @@
         "cat3": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/Printed_Chanderi_Kurta_with_pant_dupatta_2_b0ddb8e2-34dd-48ed-9ec7-6305d285a6f8.webp",
             "label": "Kurta Sets",
             "link": "shopify://collections/kurta-sets",
             "badge_label": "Best",
@@ -55,7 +51,6 @@
         "cat4": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/imgi_13_SET0213_6_30e5b066-1b59-4de4-a33f-99bf39378e3b.jpg",
             "label": "Coord Sets",
             "link": "shopify://collections/co-ord-sets",
             "badge_label": "",
@@ -65,7 +60,6 @@
         "cat5": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/IMG_5745.webp",
             "label": "Suit Sets",
             "link": "shopify://collections/suit-sets",
             "badge_label": "",
@@ -91,7 +85,7 @@
         "slide_U8gDMy": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/900_1200.webp",
+            "image": "shopify://shop_images/generate-some-banner-image-for-my-kurti-brand-make-sure-this-should-be-top-notch.png",
             "video": "",
             "subtitle": "",
             "heading": ""
@@ -238,7 +232,6 @@
         "ig1": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/2L1A8100.jpg",
             "label": "Best Seller",
             "link": "shopify://collections/best-seller"
           }
@@ -246,7 +239,6 @@
         "ig2": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_May_29_2026_11_39_02_AM.png",
             "label": "Accessories",
             "link": "shopify://collections/accessories"
           }
@@ -254,7 +246,6 @@
         "ig3": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/White_Simple_Photocentric_Jewelry_Promo_Banner_Landscape.png",
             "label": "New Arrival",
             "link": "shopify://collections/new-arrival"
           }
@@ -262,7 +253,6 @@
         "ig4": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/IMG_5745.webp",
             "label": "Co-ord Sets",
             "link": "shopify://collections/co-ord-sets"
           }
@@ -270,7 +260,6 @@
         "ig5": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/021-106036891509506_l.jpg",
             "label": "Kurta Sets",
             "link": "shopify://collections/kurta-sets"
           }
@@ -278,7 +267,6 @@
         "ig6": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Dhaaga_Set_Winter_Spun_Oversized_Fit_1.webp",
             "label": "Explore All",
             "link": "shopify://collections"
           }
@@ -308,7 +296,6 @@
         "tc1": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/karishmaraj_28_1749977450_3655398250301557402_69407734367.jpg",
             "label": "KARIGARI",
             "link": "shopify://collections/embroidery"
           }
@@ -316,7 +303,6 @@
         "tc2": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/1cb7f2b8-be73-43f2-8599-c6a393be01f5.png",
             "label": "Coord Sets",
             "link": "shopify://collections/co-ord-sets"
           }
@@ -324,7 +310,6 @@
         "tc3": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/2L1A8072.jpg",
             "label": "BOTTOM WEAR",
             "link": "shopify://collections/bottom-wear"
           }
@@ -332,7 +317,6 @@
         "tc4": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_May_29_2026_11_41_19_AM.png",
             "label": "ACCESSORIES",
             "link": "shopify://collections/accessories"
           }
@@ -522,7 +506,6 @@
     "image-text": {
       "type": "image-with-text",
       "settings": {
-        "image": "shopify://shop_images/Untitled_design_34.png",
         "image_fit": "contain",
         "subtitle": "Our Story",
         "heading": "Crafted with Love",
