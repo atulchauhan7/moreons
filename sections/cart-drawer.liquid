@@ -1,1 +1,113 @@
-{%- render 'cart-drawer' -%}
+{% comment %}theme-check-disable OrphanedSnippet{% endcomment %}
+<div class="cart-drawer-overlay" aria-hidden="true"></div>
+<div class="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
+<div class="cart-drawer__header">
+<div class="cart-drawer__header-info">
+<span class="cart-drawer__title">{{ settings.cart_drawer_title | default: 'My Bag' }}</span>
+<span class="cart-drawer__subtitle">
+  {% if cart.item_count > 0 %}{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} added{% else %}Your bag is empty{% endif %}
+</span>
+</div>
+{% if cart.item_count > 0 %}
+<span class="cart-drawer__count-badge" aria-label="{{ cart.item_count }} items">{{ cart.item_count }}</span>
+{% endif %}
+<button class="cart-drawer__close" aria-label="Close cart">
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<line x1="18" y1="6" x2="6" y2="18"/>
+<line x1="6" y1="6" x2="18" y2="18"/>
+</svg>
+</button>
+</div>
+
+{% assign show_shipping_bar = settings.cart_show_shipping_bar %}
+{% assign free_shipping_threshold = settings.cart_free_shipping_threshold | default: 999 | at_least: 1 | times: 100 %}
+{% assign shipping_success_text = settings.cart_shipping_success_text | default: "You've unlocked <strong>free shipping!</strong>" %}
+{% assign shipping_progress_text = settings.cart_shipping_progress_text | default: "Add <strong>[amount]</strong> more for <strong>free shipping</strong>" %}
+{% assign cart_total = cart.total_price %}
+{% if cart.item_count > 0 %}
+{% if show_shipping_bar %}
+<div class="cart-drawer__shipping-bar">
+{% if cart_total >= free_shipping_threshold %}
+<div class="cart-drawer__shipping-text cart-drawer__shipping-text--success">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+{{ shipping_success_text }}
+</div>
+<div class="cart-drawer__shipping-progress"><div class="cart-drawer__shipping-fill" style="width:100%"></div></div>
+{% else %}
+{% assign remaining = free_shipping_threshold | minus: cart_total %}
+{% assign progress = cart_total | times: 100 | divided_by: free_shipping_threshold %}
+{% assign remaining_formatted = remaining | money %}
+<div class="cart-drawer__shipping-text">
+{{ shipping_progress_text | replace: '[amount]', remaining_formatted }}
+</div>
+<div class="cart-drawer__shipping-progress"><div class="cart-drawer__shipping-fill" style="width:{{ progress }}%"></div></div>
+{% endif %}
+</div>
+{% endif %}
+<div class="cart-drawer__items">
+{% for item in cart.items %}
+<div class="cart-drawer__item" data-line="{{ forloop.index }}" data-key="{{ item.key }}">
+<div class="cart-drawer__item-image">
+{% if item.image != blank %}
+<img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title | escape }}" loading="lazy" width="200" height="{{ 200 | divided_by: item.image.aspect_ratio | round }}">
+{% endif %}
+</div>
+<div class="cart-drawer__item-info">
+<a href="{{ item.url }}" class="cart-drawer__item-title">{{ item.product.title }}</a>
+{% if item.variant.title != 'Default Title' %}
+<div class="cart-drawer__item-variant">{{ item.variant.title }}</div>
+{% endif %}
+<div class="cart-drawer__item-price">{{ item.final_line_price | money }}</div>
+<div class="cart-drawer__item-actions">
+<div class="cart-drawer__qty">
+<button data-qty-minus aria-label="Decrease quantity">&#8722;</button>
+<span>{{ item.quantity }}</span>
+<button data-qty-plus aria-label="Increase quantity">+</button>
+</div>
+<button class="cart-drawer__item-remove" data-qty-remove aria-label="Remove item"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+
+{% comment %} Frequently Bought Together — loaded client-side from configurable collection {% endcomment %}
+{% comment %} Frequently Bought Together — populated by loadCartFBT() in luxe-theme.js {% endcomment %}
+<div class="cart-drawer__reco" id="cart-drawer-fbt" style="display:none">
+  <div class="cart-drawer__reco-title">Frequently Bought Together</div>
+  <div class="cart-drawer__reco-scroll" id="cart-drawer-fbt-scroll"></div>
+</div>
+
+<div class="cart-drawer__footer">
+<div class="cart-drawer__subtotal">
+<span>Subtotal</span>
+<span class="cart-drawer__subtotal-price">{{ cart.total_price | money }}</span>
+</div>
+  <form action="{{ routes.cart_url }}" method="post" novalidate class="cart-drawer__checkout-form">
+    {% unless settings.goEnable %}
+    <button type="button" id="checkout2" name="checkout2" class="btn btn--primary btn--full" onclick="handleFloCheckoutBtn()">Checkout</button>
+    {% endunless %}
+    {% render 'gokwik-checkout' %}
+  </form>
+  <div class="payment-icons payment-icons--drawer">
+  </div><p class="cart-drawer__note">Shipping & taxes calculated at checkout · <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-1px"><path d="M2 9.5V4a1 1 0 011-1h5.5"/><path d="M22 9.5V4a1 1 0 00-1-1h-5.5"/><path d="M2 14.5V20a1 1 0 001 1h5.5"/><path d="M22 14.5V20a1 1 0 01-1 1h-5.5"/><circle cx="12" cy="12" r="3"/></svg> Coupon codes can be applied at checkout</p>
+</div>
+{% else %}
+<div class="cart-drawer__empty">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+<path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+<line x1="3" y1="6" x2="21" y2="6"/>
+<path d="M16 10a4 4 0 0 1-8 0"/>
+</svg>
+<p>Your cart is empty</p>
+<a href="{{ routes.all_products_collection_url }}" class="btn btn--primary">Start Shopping</a>
+</div>
+{% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Cart Drawer",
+  "settings": []
+}
+{% endschema %}

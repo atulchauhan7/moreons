@@ -1,0 +1,93 @@
+<div class="page-template">
+<div class="container container--narrow">
+<article data-animate="fade-up">
+<div class="page-header">
+<div class="section-header__subtitle">{{ article.published_at | date: '%B %d, %Y' }} &middot; {{ article.author }}</div>
+<h1>{{ article.title }}</h1>
+</div>
+{% if article.image != blank %}
+<div class="mb-3" style="border-radius:var(--border-radius);overflow:hidden">
+<img src="{{ article.image | image_url: width: 1200 }}" srcset="{{ article.image | image_url: width: 600 }} 600w, {{ article.image | image_url: width: 900 }} 900w, {{ article.image | image_url: width: 1200 }} 1200w" sizes="(max-width: 680px) 100vw, 680px" alt="{{ article.image.alt | escape }}" loading="lazy" width="1200" height="630" style="width:100%;height:auto">
+</div>
+{% endif %}
+<div class="page-content">
+{{ article.content }}
+</div>
+{% if blog.comments_enabled? %}
+<section class="comments-wrap" aria-labelledby="comments-title">
+<div class="comments-head">
+  <h3 id="comments-title" class="comments-head__title">
+    Discussion
+    <span class="comments-head__count">{{ article.comments_count }}</span>
+  </h3>
+  <a href="#comment-form" class="comments-head__cta">Join the conversation →</a>
+</div>
+
+{% if article.comments_count > 0 %}
+<ol class="comments-list" role="list">
+{% for comment in article.comments %}
+{%- assign initial = comment.author | strip | upcase | slice: 0, 1 -%}
+<li class="comment-card" id="comment-{{ comment.id }}">
+  <div class="comment-card__avatar" aria-hidden="true">{{ initial | default: '?' }}</div>
+  <div class="comment-card__body">
+    <div class="comment-card__meta">
+      <span class="comment-card__author">{{ comment.author | escape }}</span>
+      <span class="comment-card__dot" aria-hidden="true">•</span>
+      <time class="comment-card__date" datetime="{{ comment.created_at | date: '%Y-%m-%d' }}">{{ comment.created_at | date: '%b %d, %Y' }}</time>
+    </div>
+    <div class="comment-card__content">{{ comment.content }}</div>
+  </div>
+</li>
+{% endfor %}
+</ol>
+{% else %}
+<div class="comments-empty">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <p>Be the first to share what you think.</p>
+</div>
+{% endif %}
+
+{% form 'new_comment', article %}
+<div class="comment-form" id="comment-form">
+  <h4 class="comment-form__title">Leave a comment</h4>
+  <p class="comment-form__hint">Comments are reviewed before they appear. Your email is never published.</p>
+  <div class="comment-form__row">
+    <div class="form-group">
+      <label class="form-label" for="comment-author">Name</label>
+      <input class="form-input" type="text" id="comment-author" name="comment[author]" required autocomplete="name">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="comment-email">Email</label>
+      <input class="form-input" type="email" id="comment-email" name="comment[email]" required autocomplete="email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="form-label" for="comment-body">Comment</label>
+    <textarea class="form-textarea" id="comment-body" name="comment[body]" rows="5" required placeholder="Share your thoughts…"></textarea>
+  </div>
+  <button type="submit" class="btn btn--primary comment-form__submit">Post Comment</button>
+</div>
+{% endform %}
+</section>
+{% endif %}
+</article>
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Article",
+"headline": {{ article.title | json }},
+"datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%S%z' | json }},
+"author": {
+  "@type": "Person",
+  "name": {{ article.author | json }}
+},
+{% if article.image %}"image": {{ article.image | image_url: width: 1200 | json }},{% endif %}
+"publisher": {
+  "@type": "Organization",
+  "name": {{ shop.name | json }}
+}
+}
+</script>
+</div>
+</div>

@@ -1,0 +1,38 @@
+{% if section.settings.show_section %}
+<section class="promo-banner" data-section-id="{{ section.id }}" style="--promo-bg:{{ section.settings.bg_color | default: '#1a1a1a' }}">
+  <div class="promo-banner__inner container">
+    <div class="promo-banner__left">
+      {% if section.settings.eyebrow != blank %}
+      <span class="promo-banner__eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
+      <p class="promo-banner__main">{{ section.settings.offer_text | default: 'GET 10% CASHBACK' }}</p>
+      <p class="promo-banner__sub">{{ section.settings.subtext | default: 'Valid on all orders above ₹499' }}</p>
+    </div>
+    <div class="promo-banner__right">
+      <div class="promo-banner__code-box">
+        <span class="promo-banner__code-label">USE CODE</span>
+        <span class="promo-banner__code-value">{{ section.settings.coupon_code | default: 'SAVE10' }}</span>
+        <button class="promo-banner__copy-btn" type="button" data-copy-promo="{{ section.settings.coupon_code | default: 'SAVE10' | escape }}" aria-label="Copy coupon code">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+      <svg class="promo-banner__deco" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Promo Banner",
+  "settings": [
+    {"type":"checkbox","id":"show_section","label":"Show section","default":true},
+    {"type":"color","id":"bg_color","label":"Background color","default":"#1a1a1a"},
+    {"type":"text","id":"eyebrow","label":"Eyebrow text","default":"Limited Period Offer"},
+    {"type":"text","id":"offer_text","label":"Offer headline","default":"GET 10% CASHBACK"},
+    {"type":"text","id":"subtext","label":"Sub text","default":"Valid on all orders above ₹499"},
+    {"type":"text","id":"coupon_code","label":"Coupon code","default":"SAVE10"}
+  ],
+  "presets": [{"name":"Promo Banner"}]
+}
+{% endschema %}

@@ -1,0 +1,134 @@
+{% comment %}
+  Social Proof / Trust Stats Strip — Bewakoof-style row of headline numbers
+  (e.g. "5 Lakh+ Orders Delivered", "1 Lakh+ Happy Customers", "4.7 Avg Rating").
+  Sits near the top of the homepage to build instant credibility.
+{% endcomment %}
+{% if section.settings.show_section and section.blocks.size > 0 %}
+<section class="social-proof social-proof--{{ section.settings.background }}" data-section-id="{{ section.id }}" aria-label="Why shop with us">
+  {% if section.settings.heading != blank %}
+  <h2 class="social-proof__heading">{{ section.settings.heading }}</h2>
+  {% endif %}
+  <div class="container">
+    <ul class="social-proof__list" role="list">
+      {% for block in section.blocks %}
+      <li class="social-proof__item" {{ block.shopify_attributes }}>
+        {% if block.settings.icon != 'none' %}
+        <span class="social-proof__icon" aria-hidden="true">
+          {% case block.settings.icon %}
+          {% when 'bag' %}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          {% when 'users' %}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          {% when 'star' %}
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          {% when 'truck' %}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          {% when 'shield' %}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12z"/><polyline points="9 12 11 14 15 10"/></svg>
+          {% when 'map' %}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          {% else %}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="9 12 11 14 15 10"/></svg>
+          {% endcase %}
+        </span>
+        {% endif %}
+        <span class="social-proof__text">
+          <span class="social-proof__number"
+            {% if block.settings.count_to != blank and block.settings.count_to != 0 %}data-countup="{{ block.settings.count_to }}" data-countup-prefix="{{ block.settings.prefix }}" data-countup-suffix="{{ block.settings.suffix }}"{% endif %}>
+            {{ block.settings.prefix }}{{ block.settings.number }}{{ block.settings.suffix }}
+          </span>
+          <span class="social-proof__label">{{ block.settings.label }}</span>
+        </span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<script>
+(function(){
+  var sec=document.querySelector('[data-section-id="{{ section.id }}"]');
+  if(!sec)return;
+  var nums=sec.querySelectorAll('[data-countup]');
+  if(!nums.length)return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function fmt(n){return n>=1000?n.toLocaleString('en-IN'):String(n);}
+  function run(el){
+    var target=parseFloat(el.getAttribute('data-countup'))||0;
+    var pre=el.getAttribute('data-countup-prefix')||'';
+    var suf=el.getAttribute('data-countup-suffix')||'';
+    if(reduce){el.textContent=pre+fmt(target)+suf;return;}
+    var dur=1400,start=null;
+    function step(ts){
+      if(!start)start=ts;
+      var p=Math.min((ts-start)/dur,1);
+      var eased=1-Math.pow(1-p,3);
+      el.textContent=pre+fmt(Math.round(target*eased))+suf;
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){run(e.target);io.unobserve(e.target);}
+      });
+    },{threshold:0.4});
+    nums.forEach(function(n){io.observe(n);});
+  }else{
+    nums.forEach(run);
+  }
+})();
+</script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Social Proof",
+  "tag": "section",
+  "class": "section-social-proof",
+  "settings": [
+    { "type": "checkbox", "id": "show_section", "label": "Show section", "default": true },
+    { "type": "text", "id": "heading", "label": "Heading (optional)" },
+    { "type": "select", "id": "background", "label": "Background", "default": "surface", "options": [
+      { "value": "light", "label": "White" },
+      { "value": "surface", "label": "Soft grey" },
+      { "value": "dark", "label": "Dark" },
+      { "value": "accent", "label": "Accent tint" }
+    ]}
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "default": "bag", "options": [
+          { "value": "none", "label": "None" },
+          { "value": "bag", "label": "Shopping bag" },
+          { "value": "users", "label": "Customers" },
+          { "value": "star", "label": "Rating star" },
+          { "value": "truck", "label": "Delivery" },
+          { "value": "shield", "label": "Trust / secure" },
+          { "value": "map", "label": "Pan-India" }
+        ]},
+        { "type": "text", "id": "number", "label": "Number (display text)", "info": "Used as-is when count-up is off, or as fallback.", "default": "5 Lakh+" },
+        { "type": "text", "id": "prefix", "label": "Prefix (e.g. ₹)" },
+        { "type": "text", "id": "suffix", "label": "Suffix (e.g. +)", "default": "+" },
+        { "type": "number", "id": "count_to", "label": "Count-up to (optional)", "info": "If set, the number animates from 0 to this on scroll. Leave blank to show the text above." },
+        { "type": "text", "id": "label", "label": "Label", "default": "Orders Delivered" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Social Proof",
+      "blocks": [
+        { "type": "stat", "settings": { "icon": "bag", "number": "5 Lakh+", "count_to": 500000, "suffix": "+", "label": "Orders Delivered" }},
+        { "type": "stat", "settings": { "icon": "users", "number": "2 Lakh+", "count_to": 200000, "suffix": "+", "label": "Happy Customers" }},
+        { "type": "stat", "settings": { "icon": "star", "number": "4.7", "label": "Average Rating" }},
+        { "type": "stat", "settings": { "icon": "map", "number": "27,000+", "suffix": "+", "label": "Pincodes Served" }}
+      ]
+    }
+  ]
+}
+{% endschema %}

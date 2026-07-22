@@ -1,0 +1,137 @@
+{% if section.settings.show_section and section.blocks.size > 0 %}
+<section class="section trending-cats-section" data-section-id="{{ section.id }}">
+
+  <div class="container">
+    <div class="trending-cats-section__head" data-animate="fade-up">
+      <h2 class="trending-cats-section__title">
+        <span class="trending-cats-section__title-bold">{{ section.settings.title_bold | default: 'Trending' }}</span>
+        {% if section.settings.title_normal != blank %}
+        <span class="trending-cats-section__title-normal"> {{ section.settings.title_normal }}</span>
+        {% endif %}
+        {% if section.settings.title_emoji != blank %}
+        <span class="trending-cats-section__emoji" aria-hidden="true">{{ section.settings.title_emoji }}</span>
+        {% endif %}
+      </h2>
+      {% if section.settings.show_view_all and section.settings.view_all_link != blank %}
+      <a href="{{ section.settings.view_all_link }}" class="trending-cats-section__view-all">View All</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="trending-cats-section__scroll-outer">
+    <div class="trending-cats-section__track">
+      {% for block in section.blocks %}
+      <a href="{{ block.settings.link | default: '#' }}"
+         class="trending-cat-card"
+         aria-label="{{ block.settings.label | escape }}"
+         {{ block.shopify_attributes }}>
+
+        <div class="trending-cat-card__media">
+          {% if block.settings.image != blank %}
+          <img
+            src="{{ block.settings.image | image_url: width: 400 }}"
+            srcset="{{ block.settings.image | image_url: width: 200 }} 200w, {{ block.settings.image | image_url: width: 400 }} 400w, {{ block.settings.image | image_url: width: 600 }} 600w"
+            sizes="(max-width:480px) 42vw, (max-width:768px) 38vw, 220px"
+            alt="{{ block.settings.label | escape }}"
+            loading="lazy" decoding="async"
+            width="300" height="380">
+          {% else %}
+          {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'trending-cat-card__placeholder' }}
+          {% endif %}
+        </div>
+
+        <div class="trending-cat-card__overlay"></div>
+
+        {% if block.settings.label != blank %}
+        <span class="trending-cat-card__label">{{ block.settings.label }}</span>
+        {% endif %}
+
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+
+</section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Trending Categories",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title_bold",
+      "label": "Title — bold word",
+      "default": "Trending"
+    },
+    {
+      "type": "text",
+      "id": "title_normal",
+      "label": "Title — normal weight suffix",
+      "default": "Categories"
+    },
+    {
+      "type": "text",
+      "id": "title_emoji",
+      "label": "Title emoji/icon",
+      "default": "🥊",
+      "info": "Shown after the title. Use any emoji."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show View All link",
+      "default": false
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View All link URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "T-shirts"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trending Categories",
+      "blocks": [
+        { "type": "category", "settings": { "label": "T-shirts" } },
+        { "type": "category", "settings": { "label": "Joggers" } },
+        { "type": "category", "settings": { "label": "Polos" } },
+        { "type": "category", "settings": { "label": "Shirts" } },
+        { "type": "category", "settings": { "label": "Jeans" } },
+        { "type": "category", "settings": { "label": "Summer Essentials" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

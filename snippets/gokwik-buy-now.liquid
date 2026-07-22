@@ -4,8 +4,8 @@
     <div class="cir-loader">Loading..</div>
   </div>
   <span class="btn-text">
-    <span>{{ settings.buyNowText }}</span>
-    <span>{{ settings.sub-titile }}</span>
+    <span>{{ settings.buyNowText | default: 'Buy Now' }}</span>
+    <span>{{ settings.sub-titile | default: '' }}</span>
   </span>
   {% if settings.enableLogo %}
   <span class="pay-opt-icon">

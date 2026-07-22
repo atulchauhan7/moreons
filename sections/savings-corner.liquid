@@ -1,0 +1,139 @@
+{% if section.settings.show_section and section.blocks.size > 0 %}
+<section class="section savings-corner-section" data-section-id="{{ section.id }}">
+  <div class="container">
+
+    <div class="savings-corner-section__head" data-animate="fade-up">
+      <h2 class="savings-corner-section__title">
+        <span class="savings-corner-section__title-bold">{{ section.settings.title_bold | default: 'Savings' }}</span>
+        {% if section.settings.title_normal != blank %}
+        <span class="savings-corner-section__title-normal"> {{ section.settings.title_normal }}</span>
+        {% endif %}
+        {% if section.settings.title_emoji != blank %}
+        <span class="savings-corner-section__emoji" aria-hidden="true"> {{ section.settings.title_emoji }}</span>
+        {% endif %}
+      </h2>
+    </div>
+
+    <div class="savings-corner-section__grid savings-corner-section__grid--{{ section.blocks.size }}">
+      {% for block in section.blocks %}
+      <a href="{{ block.settings.link | default: '#' }}"
+         class="savings-card"
+         aria-label="{{ block.settings.heading | escape }}"
+         {{ block.shopify_attributes }}>
+
+        <div class="savings-card__media">
+          {% if block.settings.image != blank %}
+          <img
+            src="{{ block.settings.image | image_url: width: 600 }}"
+            srcset="{{ block.settings.image | image_url: width: 300 }} 300w, {{ block.settings.image | image_url: width: 600 }} 600w, {{ block.settings.image | image_url: width: 900 }} 900w"
+            sizes="(max-width:768px) calc(50vw - 12px), 320px"
+            alt="{{ block.settings.heading | escape }}"
+            loading="lazy" decoding="async"
+            width="400" height="400">
+          {% else %}
+          {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'savings-card__placeholder' }}
+          {% endif %}
+        </div>
+
+        <div class="savings-card__overlay"></div>
+
+        <div class="savings-card__content">
+          {% if block.settings.eyebrow != blank %}
+          <span class="savings-card__eyebrow">{{ block.settings.eyebrow }}</span>
+          {% endif %}
+          {% if block.settings.heading != blank %}
+          <strong class="savings-card__heading">{{ block.settings.heading }}</strong>
+          {% endif %}
+          {% if block.settings.price_text != blank %}
+          <span class="savings-card__price">{{ block.settings.price_text }}</span>
+          {% endif %}
+        </div>
+
+      </a>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Savings Corner",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title_bold",
+      "label": "Title — bold word",
+      "default": "Savings"
+    },
+    {
+      "type": "text",
+      "id": "title_normal",
+      "label": "Title — normal weight suffix",
+      "default": "Corner"
+    },
+    {
+      "type": "text",
+      "id": "title_emoji",
+      "label": "Title emoji",
+      "default": "⬇️",
+      "info": "Shown after the title. Use any emoji."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "deal",
+      "name": "Deal Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background Image"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow text (small, e.g. BUY 2)",
+          "default": "BUY 2"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Main heading (bold, e.g. OVERSIZED T-SHIRTS)",
+          "default": "OVERSIZED T-SHIRTS"
+        },
+        {
+          "type": "text",
+          "id": "price_text",
+          "label": "Price text (e.g. ₹1199)",
+          "default": "₹1199"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Savings Corner",
+      "blocks": [
+        {"type":"deal","settings":{"eyebrow":"BUY 2","heading":"OVERSIZED KURTIS","price_text":"₹1199"}},
+        {"type":"deal","settings":{"eyebrow":"BUY 3","heading":"COORD SETS","price_text":"₹1499"}},
+        {"type":"deal","settings":{"eyebrow":"TOPS","heading":"UNDER ₹599","price_text":""}},
+        {"type":"deal","settings":{"eyebrow":"KURTIS","heading":"UNDER ₹899","price_text":""}}
+      ]
+    }
+  ]
+}
+{% endschema %}

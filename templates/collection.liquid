@@ -1,0 +1,342 @@
+{% paginate collection.products by 24 %}
+
+<div class="collection-page">
+
+  <div class="container">
+
+    <nav class="collection-breadcrumbs" data-animate="fade-up">
+      <a href="{{ routes.root_url }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="{{ routes.collections_url }}">Collections</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ collection.title }}</span>
+    </nav>
+
+    {% comment %} Toolbar: title, count, filter button (mobile), sort {% endcomment %}
+    <div class="collection-toolbar" data-animate="fade-up">
+      <div class="collection-toolbar__left">
+        <h1 class="collection-toolbar__title">{{ collection.title }}</h1>
+        <span class="collection-toolbar__count">{{ collection.products_count }} Products</span>
+      </div>
+      <div class="collection-toolbar__right">
+        {% if collection.filters.size > 0 %}
+        <button class="btn-filter-open" id="filter-drawer-open" type="button" aria-label="Open filters" aria-expanded="false" aria-controls="filter-drawer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="11" y2="6"/><line x1="20" y1="6" x2="13" y2="6"/><circle cx="12" cy="6" r="2"/><line x1="4" y1="12" x2="8" y2="12"/><line x1="20" y1="12" x2="12" y2="12"/><circle cx="9" cy="12" r="2"/><line x1="4" y1="18" x2="13" y2="18"/><line x1="20" y1="18" x2="15" y2="18"/><circle cx="14" cy="18" r="2"/></svg>
+          Filter
+          <span class="btn-filter-open__badge" id="filter-active-count" aria-label="active filters" style="display:none">0</span>
+        </button>
+        {% endif %}
+        <div class="collection-toolbar__sort">
+          <label for="sort-by" class="visually-hidden">Sort products</label>
+          <select id="sort-by" data-sort-collection>
+            {% for option in collection.sort_options %}
+            <option value="{{ option.url }}" {% if option.value == collection.sort_by %}selected{% endif %}>{{ option.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </div>
+
+    {% comment %} Active filter chips {% endcomment %}
+    {% assign active_filter_count = 0 %}
+    {% for filter in collection.filters %}
+      {% if filter.type == 'price_range' %}
+        {% if filter.min_value.value != blank or filter.max_value.value != blank %}
+          {% assign active_filter_count = active_filter_count | plus: 1 %}
+        {% endif %}
+      {% else %}
+        {% for value in filter.values %}
+          {% if value.active %}{% assign active_filter_count = active_filter_count | plus: 1 %}{% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+
+    {% if active_filter_count > 0 %}
+    <div class="active-filters" data-animate="fade-up">
+      {% for filter in collection.filters %}
+        {% if filter.type == 'price_range' %}
+          {% if filter.min_value.value != blank or filter.max_value.value != blank %}
+          <a href="{{ filter.url_to_remove }}" class="active-filter-chip">
+            Price
+            {% if filter.min_value.value != blank %}₹{{ filter.min_value.value }}{% endif %}
+            {% if filter.min_value.value != blank and filter.max_value.value != blank %} – {% endif %}
+            {% if filter.max_value.value != blank %}₹{{ filter.max_value.value }}{% endif %}
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </a>
+          {% endif %}
+        {% else %}
+          {% for value in filter.values %}
+            {% if value.active %}
+            <a href="{{ value.url_to_remove }}" class="active-filter-chip">
+              {{ value.label }}
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </a>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+      <a href="{{ collection.url }}" class="active-filter-clear">Clear All</a>
+    </div>
+    {% endif %}
+
+    {% comment %} Quick filter chips — surfaces top values from first 2 filters {% endcomment %}
+    {% assign chip_filters_shown = 0 %}
+    {% capture quick_chips_html %}
+      {% for filter in collection.filters %}
+        {% if chip_filters_shown >= 2 %}{% break %}{% endif %}
+        {% if filter.type == 'list' or filter.type == 'boolean' %}
+          {% assign vals_with_count = 0 %}
+          {% for v in filter.values %}{% if v.count > 0 %}{% assign vals_with_count = vals_with_count | plus: 1 %}{% endif %}{% endfor %}
+          {% if vals_with_count > 1 %}
+            {% assign chip_filters_shown = chip_filters_shown | plus: 1 %}
+            {% assign chip_count = 0 %}
+            {% for value in filter.values %}
+              {% if chip_count >= 6 %}{% break %}{% endif %}
+              {% if value.count > 0 %}
+                {% assign chip_count = chip_count | plus: 1 %}
+                <a href="{% if value.active %}{{ value.url_to_remove }}{% else %}{{ value.url_to_add }}{% endif %}"
+                   class="quick-chip{% if value.active %} quick-chip--active{% endif %}"
+                   aria-pressed="{% if value.active %}true{% else %}false{% endif %}">
+                  {{ value.label }}
+                  <span class="quick-chip__count">({{ value.count }})</span>
+                  {% if value.active %}
+                  <svg class="quick-chip__x" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  {% endif %}
+                </a>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endcapture %}
+    {% assign quick_chips_html_stripped = quick_chips_html | strip %}
+    {% if quick_chips_html_stripped != blank %}
+    <div class="quick-filters" data-animate="fade-up" role="group" aria-label="Quick filters">
+      <div class="quick-filters__scroller">
+        {{ quick_chips_html }}
+      </div>
+    </div>
+    {% endif %}
+
+    {% comment %} Description {% endcomment %}
+    {% if collection.description != blank %}
+    <p class="collection-desc">{{ collection.description }}</p>
+    {% endif %}
+
+    {% comment %} Two-column layout: sidebar + grid {% endcomment %}
+    <div class="collection-layout {% if collection.filters.size == 0 %}collection-layout--no-sidebar{% endif %}">
+
+      {% comment %} ===== SIDEBAR FILTERS (Desktop) ===== {% endcomment %}
+      {% if collection.filters.size > 0 %}
+      <aside class="filter-sidebar" id="filter-sidebar" aria-label="Product filters">
+        <div class="filter-sidebar__head">
+          <span class="filter-sidebar__title">Filters</span>
+          {% if active_filter_count > 0 %}
+          <a href="{{ collection.url }}" class="filter-sidebar__clear">Clear All</a>
+          {% endif %}
+        </div>
+
+        {% for filter in collection.filters %}
+        <div class="filter-group {% if forloop.index <= 3 %}open{% endif %}" data-filter-group>
+          <button class="filter-group__toggle" type="button" aria-expanded="{% if forloop.index <= 3 %}true{% else %}false{% endif %}">
+            <span class="filter-group__label">{{ filter.label }}</span>
+            {% assign active_in_group = 0 %}
+            {% if filter.type == 'price_range' %}
+              {% if filter.min_value.value != blank or filter.max_value.value != blank %}{% assign active_in_group = 1 %}{% endif %}
+            {% else %}
+              {% for value in filter.values %}{% if value.active %}{% assign active_in_group = active_in_group | plus: 1 %}{% endif %}{% endfor %}
+            {% endif %}
+            {% if active_in_group > 0 %}
+            <span class="filter-group__active-dot"></span>
+            {% endif %}
+            <svg class="filter-group__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="filter-group__body">
+            {% if filter.type == 'price_range' %}
+            <form class="filter-price-form" data-filter-price-form>
+              <div class="filter-price__inputs">
+                <div class="filter-price__input-wrap">
+                  <span class="filter-price__currency">₹</span>
+                  <input
+                    type="number"
+                    name="{{ filter.min_value.param_name }}"
+                    id="filter-price-min-sidebar"
+                    value="{{ filter.min_value.value | default: '' }}"
+                    placeholder="Min"
+                    min="{{ filter.range_min | divided_by: 100 }}"
+                    max="{{ filter.range_max | divided_by: 100 }}"
+                    class="filter-price__input"
+                    aria-label="Minimum price"
+                  >
+                </div>
+                <span class="filter-price__sep">–</span>
+                <div class="filter-price__input-wrap">
+                  <span class="filter-price__currency">₹</span>
+                  <input
+                    type="number"
+                    name="{{ filter.max_value.param_name }}"
+                    id="filter-price-max-sidebar"
+                    value="{{ filter.max_value.value | default: '' }}"
+                    placeholder="Max"
+                    min="{{ filter.range_min | divided_by: 100 }}"
+                    max="{{ filter.range_max | divided_by: 100 }}"
+                    class="filter-price__input"
+                    aria-label="Maximum price"
+                  >
+                </div>
+              </div>
+              <button type="submit" class="btn btn--primary btn--small filter-price__apply">Apply</button>
+            </form>
+            {% else %}
+            <div class="filter-options">
+              {% for value in filter.values %}
+              <label class="filter-option {% if value.count == 0 and value.active == false %}filter-option--empty{% endif %}">
+                <input
+                  type="checkbox"
+                  class="filter-option__checkbox"
+                  {% if value.active %}checked{% endif %}
+                  data-filter-url-add="{{ value.url_to_add }}"
+                  data-filter-url-remove="{{ value.url_to_remove }}"
+                >
+                <span class="filter-option__box"></span>
+                <span class="filter-option__text">{{ value.label }}</span>
+                <span class="filter-option__count">{{ value.count }}</span>
+              </label>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </aside>
+      {% endif %}
+
+      {% comment %} ===== MAIN PRODUCT GRID ===== {% endcomment %}
+      <div class="collection-main">
+        {% if collection.products.size == 0 %}
+        <div class="collection-empty">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <p>No products found for the selected filters.</p>
+          {% if active_filter_count > 0 %}
+          <a href="{{ collection.url }}" class="btn btn--secondary">Clear Filters</a>
+          {% endif %}
+        </div>
+        {% else %}
+        <div class="grid grid--4" data-animate-stagger>
+          {% for product in collection.products %}
+          <div data-animate="fade-up">
+            {% render 'product-card', product: product %}
+          </div>
+          {% endfor %}
+        </div>
+        {% if paginate.pages > 1 %}
+        {% render 'pagination', paginate: paginate %}
+        {% endif %}
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% comment %} ===== MOBILE FILTER DRAWER ===== {% endcomment %}
+{% if collection.filters.size > 0 %}
+<div class="filter-drawer-overlay" id="filter-drawer-overlay" aria-hidden="true"></div>
+<div class="filter-drawer" id="filter-drawer" role="dialog" aria-modal="true" aria-label="Product filters" aria-hidden="true">
+  <div class="filter-drawer__header">
+    <span class="filter-drawer__title">Filters</span>
+    <button class="filter-drawer__close" id="filter-drawer-close" type="button" aria-label="Close filters">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="filter-drawer__body">
+    {% for filter in collection.filters %}
+    <div class="filter-group {% if forloop.index <= 2 %}open{% endif %}" data-filter-group>
+      <button class="filter-group__toggle" type="button" aria-expanded="{% if forloop.index <= 2 %}true{% else %}false{% endif %}">
+        <span class="filter-group__label">{{ filter.label }}</span>
+        {% assign active_in_group_d = 0 %}
+        {% if filter.type == 'price_range' %}
+          {% if filter.min_value.value != blank or filter.max_value.value != blank %}{% assign active_in_group_d = 1 %}{% endif %}
+        {% else %}
+          {% for value in filter.values %}{% if value.active %}{% assign active_in_group_d = active_in_group_d | plus: 1 %}{% endif %}{% endfor %}
+        {% endif %}
+        {% if active_in_group_d > 0 %}
+        <span class="filter-group__active-dot"></span>
+        {% endif %}
+        <svg class="filter-group__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="filter-group__body">
+        {% if filter.type == 'price_range' %}
+        <form class="filter-price-form" data-filter-price-form>
+          <div class="filter-price__inputs">
+            <div class="filter-price__input-wrap">
+              <span class="filter-price__currency">₹</span>
+              <input
+                type="number"
+                name="{{ filter.min_value.param_name }}"
+                id="filter-price-min-drawer"
+                value="{{ filter.min_value.value | default: '' }}"
+                placeholder="Min"
+                min="{{ filter.range_min | divided_by: 100 }}"
+                max="{{ filter.range_max | divided_by: 100 }}"
+                class="filter-price__input"
+                aria-label="Minimum price"
+              >
+            </div>
+            <span class="filter-price__sep">–</span>
+            <div class="filter-price__input-wrap">
+              <span class="filter-price__currency">₹</span>
+              <input
+                type="number"
+                name="{{ filter.max_value.param_name }}"
+                id="filter-price-max-drawer"
+                value="{{ filter.max_value.value | default: '' }}"
+                placeholder="Max"
+                min="{{ filter.range_min | divided_by: 100 }}"
+                max="{{ filter.range_max | divided_by: 100 }}"
+                class="filter-price__input"
+                aria-label="Maximum price"
+              >
+            </div>
+          </div>
+          <button type="submit" class="btn btn--primary btn--small filter-price__apply">Apply</button>
+        </form>
+        {% else %}
+        <div class="filter-options">
+          {% for value in filter.values %}
+          <label class="filter-option {% if value.count == 0 and value.active == false %}filter-option--empty{% endif %}">
+            <input
+              type="checkbox"
+              class="filter-option__checkbox"
+              {% if value.active %}checked{% endif %}
+              data-filter-url-add="{{ value.url_to_add }}"
+              data-filter-url-remove="{{ value.url_to_remove }}"
+            >
+            <span class="filter-option__box"></span>
+            <span class="filter-option__text">{{ value.label }}</span>
+            <span class="filter-option__count">{{ value.count }}</span>
+          </label>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="filter-drawer__footer">
+    {% if active_filter_count > 0 %}
+    <a href="{{ collection.url }}" class="btn btn--secondary">Clear All</a>
+    {% endif %}
+    <button type="button" class="btn btn--primary filter-drawer__apply" id="filter-drawer-apply">
+      View {{ collection.products_count }} Products
+    </button>
+  </div>
+</div>
+{% endif %}
+
+{% endpaginate %}
+
+<script>
+/* Pass active filter count to JS for badge */
+window._collectionActiveFilters = {{ active_filter_count }};
+</script>

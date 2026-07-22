@@ -1,0 +1,43 @@
+<nav class="bottom-nav" id="bottom-nav" aria-label="Site navigation">
+
+  <a href="{{ routes.root_url }}"
+     class="bottom-nav__item{% if template.name == 'index' %} active{% endif %}"
+     aria-label="Home"
+     aria-current="{% if template.name == 'index' %}page{% else %}false{% endif %}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>Home</span>
+  </a>
+
+  <a href="{{ routes.collections_url }}"
+     class="bottom-nav__item{% if template.name == 'list-collections' or template.name == 'collection' %} active{% endif %}"
+     aria-label="Categories"
+     aria-current="{% if template.name == 'list-collections' or template.name == 'collection' %}page{% else %}false{% endif %}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+    <span>Categories</span>
+  </a>
+
+  <a href="{{ routes.search_url }}"
+     class="bottom-nav__item{% if template.name == 'search' %} active{% endif %}"
+     aria-label="Search"
+     aria-current="{% if template.name == 'search' %}page{% else %}false{% endif %}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <span>Search</span>
+  </a>
+
+  <button class="bottom-nav__item bottom-nav__item--wishlist" data-wishlist-trigger aria-label="Wishlist">
+    <span class="bottom-nav__icon-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <span class="wishlist-count-badge" style="display:none;"></span>
+    </span>
+    <span>Wishlist</span>
+  </button>
+
+  <a href="{{ routes.account_url }}"
+     class="bottom-nav__item{% if request.path contains '/account' %} active{% endif %}"
+     aria-label="My Account"
+     aria-current="{% if request.path contains '/account' %}page{% else %}false{% endif %}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    <span>Profile</span>
+  </a>
+
+</nav>

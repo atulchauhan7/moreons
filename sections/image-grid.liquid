@@ -1,0 +1,160 @@
+{% if section.settings.show_section and section.blocks.size > 0 %}
+<section class="section img-grid-section img-grid-section--{{ section.settings.density | default: 'comfortable' }}" data-section-id="{{ section.id }}">
+  <div class="container">
+
+    {% if section.settings.title_bold != blank or section.settings.title_normal != blank %}
+    <div class="img-grid-section__head" data-animate="fade-up">
+      <h2 class="img-grid-section__title">
+        {% if section.settings.title_bold != blank %}<span class="img-grid-section__title-bold">{{ section.settings.title_bold }}</span>{% endif %}
+        {% if section.settings.title_normal != blank %} <span class="img-grid-section__title-normal">{{ section.settings.title_normal }}</span>{% endif %}
+      </h2>
+      {% if section.settings.subtitle != blank %}
+      <p class="img-grid-section__sub">
+        {% if section.settings.subtitle_highlight != blank %}<span class="img-grid-section__sub-highlight">{{ section.settings.subtitle_highlight }}</span> {% endif %}{{ section.settings.subtitle }}
+      </p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="img-grid-section__grid img-grid-section__grid--{{ section.blocks.size }}">
+      {% for block in section.blocks %}
+      {% assign is_last = false %}
+      {% if forloop.last and section.settings.last_as_explore %}{% assign is_last = true %}{% endif %}
+      <a href="{{ block.settings.link | default: '#' }}"
+         class="img-grid-card {% if is_last %}img-grid-card--explore{% endif %}"
+         aria-label="{{ block.settings.label | escape }}"
+         {{ block.shopify_attributes }}>
+
+        <div class="img-grid-card__media">
+          {% if block.settings.image != blank %}
+          <img
+            src="{{ block.settings.image | image_url: width: 600 }}"
+            srcset="{{ block.settings.image | image_url: width: 300 }} 300w, {{ block.settings.image | image_url: width: 600 }} 600w, {{ block.settings.image | image_url: width: 900 }} 900w"
+            sizes="(max-width:600px) calc(50vw - 12px), 320px"
+            alt="{{ block.settings.label | escape }}"
+            loading="lazy" decoding="async"
+            width="400" height="500">
+          {% else %}
+          {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'img-grid-card__placeholder' }}
+          {% endif %}
+        </div>
+
+        <div class="img-grid-card__overlay"></div>
+
+        <div class="img-grid-card__top">
+          {% if block.settings.label != blank %}
+          <span class="img-grid-card__label">{{ block.settings.label }}</span>
+          {% endif %}
+        </div>
+
+        <div class="img-grid-card__bottom">
+          <span class="img-grid-card__arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+          {% if is_last and block.settings.label != blank %}
+          <span class="img-grid-card__explore-text">{{ block.settings.label }}</span>
+          {% endif %}
+        </div>
+
+      </a>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Image Grid",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title_bold",
+      "label": "Title (bold part)",
+      "default": "Oversized Tees Haul"
+    },
+    {
+      "type": "text",
+      "id": "title_normal",
+      "label": "Title (normal weight suffix)",
+      "info": "Optional lighter text appended after bold title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_highlight",
+      "label": "Subtitle — highlighted word",
+      "default": "Bestsellers",
+      "info": "This word gets the underline accent"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle — rest of text",
+      "default": "in one place"
+    },
+    {
+      "type": "select",
+      "id": "density",
+      "label": "Density",
+      "default": "comfortable",
+      "options": [
+        { "value": "comfortable", "label": "Comfortable (default)" },
+        { "value": "compact", "label": "Compact (denser grid)" }
+      ],
+      "info": "Compact shows more items per row on tablet/desktop with tighter gaps — useful for narrower layouts or category-heavy lookbooks."
+    },
+    {
+      "type": "checkbox",
+      "id": "last_as_explore",
+      "label": "Style last card as 'Explore All'",
+      "default": true,
+      "info": "Last block gets a different layout with label shown at bottom"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Grid Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Category"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Grid",
+      "blocks": [
+        { "type": "item", "settings": { "label": "Hyper Prints" } },
+        { "type": "item", "settings": { "label": "Minimalistic" } },
+        { "type": "item", "settings": { "label": "Acid-Washed" } },
+        { "type": "item", "settings": { "label": "Word Drip" } },
+        { "type": "item", "settings": { "label": "Solids" } },
+        { "type": "item", "settings": { "label": "Explore All" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

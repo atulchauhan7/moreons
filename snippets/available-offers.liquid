@@ -1,0 +1,54 @@
+{%- comment -%}
+  Available Offers strip — used on PDP and Cart.
+  Params:
+    variant: 'pdp' (default) or 'cart'
+{%- endcomment -%}
+{%- if settings.offers_enabled -%}
+{%- assign _v = variant | default: 'pdp' -%}
+<div class="available-offers available-offers--{{ _v }}" data-available-offers>
+  <div class="available-offers__head">
+    <span class="available-offers__icon" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+    </span>
+    <h3 class="available-offers__title">Available Offers</h3>
+  </div>
+  <ul class="available-offers__list" role="list">
+    {%- if settings.offer1_code != blank -%}
+    <li class="available-offer">
+      <div class="available-offer__body">
+        <div class="available-offer__title">{{ settings.offer1_title }}</div>
+        {%- if settings.offer1_desc != blank -%}<div class="available-offer__desc">{{ settings.offer1_desc }}</div>{%- endif -%}
+      </div>
+      <button type="button" class="available-offer__code" data-copy-code="{{ settings.offer1_code }}" aria-label="Copy code {{ settings.offer1_code }}">
+        <span class="available-offer__code-text">{{ settings.offer1_code }}</span>
+        <span class="available-offer__copy">Copy</span>
+      </button>
+    </li>
+    {%- endif -%}
+    {%- if settings.offer2_code != blank -%}
+    <li class="available-offer">
+      <div class="available-offer__body">
+        <div class="available-offer__title">{{ settings.offer2_title }}</div>
+        {%- if settings.offer2_desc != blank -%}<div class="available-offer__desc">{{ settings.offer2_desc }}</div>{%- endif -%}
+      </div>
+      <button type="button" class="available-offer__code" data-copy-code="{{ settings.offer2_code }}" aria-label="Copy code {{ settings.offer2_code }}">
+        <span class="available-offer__code-text">{{ settings.offer2_code }}</span>
+        <span class="available-offer__copy">Copy</span>
+      </button>
+    </li>
+    {%- endif -%}
+    {%- if settings.offer3_code != blank -%}
+    <li class="available-offer">
+      <div class="available-offer__body">
+        <div class="available-offer__title">{{ settings.offer3_title }}</div>
+        {%- if settings.offer3_desc != blank -%}<div class="available-offer__desc">{{ settings.offer3_desc }}</div>{%- endif -%}
+      </div>
+      <button type="button" class="available-offer__code" data-copy-code="{{ settings.offer3_code }}" aria-label="Copy code {{ settings.offer3_code }}">
+        <span class="available-offer__code-text">{{ settings.offer3_code }}</span>
+        <span class="available-offer__copy">Copy</span>
+      </button>
+    </li>
+    {%- endif -%}
+  </ul>
+</div>
+{%- endif -%}

@@ -1,0 +1,1230 @@
+/* === FOOTER — Clean dark, Bewakoof inspired === */
+.site-footer{background:#111111;color:rgba(255,255,255,0.55);position:relative;z-index:1;margin-top:10px}
+/* Footer newsletter bar */
+.site-footer__newsletter-bar{background:#111;border-bottom:1px solid rgba(255,255,255,0.06);padding:2rem 0}
+.site-footer__newsletter-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.site-footer__newsletter-title{color:#fff;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.2em;font-weight:500;margin-bottom:0.3rem}
+.site-footer__newsletter-text p{font-size:0.78rem;color:rgba(255,255,255,0.45);margin:0}
+.site-footer__newsletter-form-wrap{flex-shrink:0;min-width:420px}
+.site-footer__newsletter-form{display:flex;border:1px solid rgba(255,255,255,0.15);overflow:hidden;transition:border-color 0.4s}
+.site-footer__newsletter-form:focus-within{border-color:rgba(255,255,255,0.4)}
+.site-footer__newsletter-input{flex:1;border:none;padding:14px 20px;font-size:0.82rem;background:transparent;color:#fff;outline:none;letter-spacing:0.01em}
+.site-footer__newsletter-input::placeholder{color:rgba(255,255,255,0.3)}
+.site-footer__newsletter-btn{background:var(--color-accent);color:#fff;padding:14px 28px;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.16em;font-weight:500;transition:all 0.4s;white-space:nowrap;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem}
+.site-footer__newsletter-btn:hover{background:var(--color-accent-dark);color:#fff}
+/* Footer grid */
+.site-footer__grid{display:grid;grid-template-columns:1.5fr 1fr;gap:2rem;padding:clamp(2rem,4vw,3rem) 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.site-footer__brand-col{display:block}
+.site-footer__brand{font-family:var(--font-heading);font-size:1.2rem;font-weight:400;color:#fff;display:inline-block;margin-bottom:1.5rem;letter-spacing:0.35em;text-transform:uppercase}
+.site-footer__about{font-size:0.82rem;line-height:1.9;margin-bottom:1.25rem}
+.site-footer__address{font-size:0.78rem;line-height:1.8;opacity:0.4;margin-bottom:1rem}
+.site-footer__whatsapp{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:#25D366;transition:all 0.3s;padding:8px 16px;border:1px solid rgba(37,211,102,0.3);margin-top:0.5rem}
+.site-footer__whatsapp:hover{background:#25D366;color:#fff;border-color:#25D366}
+.site-footer__email{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:rgba(255,255,255,0.55);transition:all 0.3s;padding:8px 16px;border:1px solid rgba(255,255,255,0.15);margin-top:0.5rem}
+.site-footer__email:hover{background:rgba(255,255,255,0.08);color:#fff;border-color:rgba(255,255,255,0.3)}
+.site-footer__email svg{flex-shrink:0;opacity:0.7}
+.site-footer__menu-col{display:block}
+.site-footer__heading-wrap{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.site-footer__heading{color:#fff;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.2em;font-weight:500;margin:0}
+.site-footer__toggle{display:none;color:rgba(255,255,255,0.35);padding:4px;background:none;border:none;cursor:pointer}
+.site-footer__links{display:flex;flex-direction:column}
+.site-footer__link{display:flex;align-items:center;gap:0;padding:0.6rem 0;font-size:0.8rem;color:rgba(255,255,255,0.42);letter-spacing:0.02em;border-bottom:1px solid rgba(255,255,255,0.05);transition:color 0.3s ease,gap 0.35s var(--ease-out-expo)}
+.site-footer__link:last-child{border-bottom:none}
+.site-footer__link::before{content:'';width:0;height:1.5px;background:var(--color-accent);margin-right:0;flex-shrink:0;transition:width 0.35s var(--ease-out-expo),margin-right 0.3s var(--ease-out-expo)}
+.site-footer__link:hover{color:#fff;gap:0.5rem}
+.site-footer__link:hover::before{width:12px;margin-right:0}
+.site-footer__bottom{padding:1.5rem 0;display:flex;align-items:center;justify-content:space-between;font-size:0.7rem;flex-wrap:wrap;gap:0.75rem;margin-top:0.25rem;letter-spacing:0.04em}
+.site-footer__social{display:flex;gap:0.625rem;align-items:center}
+.site-footer__social-link{width:40px;height:40px;border:1px solid rgba(255,255,255,0.22);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all 0.4s var(--ease-out-expo);color:rgba(255,255,255,0.75)}
+.site-footer__social-link:hover{background:var(--color-accent);border-color:var(--color-accent);color:#fff;transform:translateY(-3px);box-shadow:0 6px 18px rgba(var(--color-accent-rgb),0.35)}
+.site-footer__social-link svg{width:17px;height:17px}
+.site-footer__payment{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.site-footer__payment svg{width:38px;height:24px;border-radius:3px;flex-shrink:0;display:block}
+@media(max-width:768px){
+  .site-footer__newsletter-inner{flex-direction:column;text-align:center}
+  .site-footer__newsletter-form-wrap{min-width:auto;width:100%}
+  .site-footer__newsletter-form{flex-direction:column}
+  .site-footer__newsletter-input{padding:12px 16px;text-align:center}
+  .site-footer__newsletter-btn{justify-content:center;padding:12px}
+  .site-footer__grid{grid-template-columns:1fr;gap:1.25rem}
+  .site-footer__toggle{display:flex}
+  .site-footer__links{display:none;padding-top:0.5rem}
+  .site-footer__menu-col.open .site-footer__links{display:flex;flex-direction:column}
+  .site-footer__menu-col.open .site-footer__toggle svg{transform:rotate(45deg)}
+  .site-footer__menu-col[data-always-open] .site-footer__links{display:flex;flex-direction:column;padding-top:0}
+  .site-footer__menu-col[data-always-open] .site-footer__toggle{display:none!important}
+  .site-footer__bottom{flex-direction:column;text-align:center;padding:1.5rem 0 4rem}
+  .site-footer__social{gap:0.75rem}
+  .site-footer__social-link{width:44px;height:44px}
+  .site-footer__social-link svg{width:18px;height:18px}
+  .site-footer__about{font-size:0.78rem}
+  .site-footer__address{font-size:0.72rem}
+  .site-footer__whatsapp{font-size:0.7rem;padding:6px 12px}
+}
+
+
+
+/* ================================================================
+   Overrides merged from theme-overrides.css
+   ================================================================ */
+/* =====================================================
+   FOOTER — DARK BACKGROUND
+   ===================================================== */
+.site-footer{
+  background:#1d1b1b!important;
+  color:#a0a0a0!important;
+  border-top:none!important;
+}
+.site-footer a{color:#a0a0a0!important;transition:color 0.15s}
+.site-footer a:hover{color:#fff!important}
+.footer__brand-name,.footer__heading{
+  color:#fff!important;
+  font-weight:700!important;
+  font-size:0.85rem!important;
+  text-transform:uppercase!important;
+  letter-spacing:0.08em!important;
+  margin-bottom:12px!important;
+}
+.footer__brand-desc{
+  color:#878787!important;
+  font-size:0.72rem!important;
+  line-height:1.65!important;
+}
+.footer__link{
+  font-size:0.75rem!important;
+  color:#a0a0a0!important;
+  padding:3px 0!important;
+  display:block;
+}
+.footer__link:hover{color:#fff!important}
+.footer__bottom{
+  border-top:1px solid #2d2d2d!important;
+  background:#1d1b1b!important;
+}
+.footer__copy{
+  color:#666!important;
+  font-size:0.68rem!important;
+}
+
+/* Social icons */
+.footer__social-icon{
+  width:34px!important;
+  height:34px!important;
+  border-radius:50%!important;
+  border:1px solid #3a3a3a!important;
+  background:#2a2a2a!important;
+  color:#a0a0a0!important;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition:background 0.15s,border-color 0.15s,color 0.15s;
+}
+.footer__social-icon:hover{
+  background:#fff!important;
+  border-color:#fff!important;
+  color:#1d1b1b!important;
+}
+.footer__social-icon svg{stroke:#a0a0a0}
+.footer__social-icon:hover svg{stroke:#1d1b1b}
+
+/* Payment icons */
+.footer__payment-icons img{
+  filter:brightness(0) invert(0.6)!important;
+  transition:filter 0.15s;
+}
+.footer__payment-icons img:hover{filter:brightness(0) invert(1)!important}
+
+/* Footer benefits row */
+.footer__benefits-grid{
+  background:#222!important;
+  border-bottom:1px solid #2d2d2d!important;
+}
+.footer__benefit-title{color:#fff!important;font-size:0.75rem!important;font-weight:600!important}
+.footer__benefit-text{color:#878787!important;font-size:0.65rem!important}
+.footer__benefit-icon{color:#1fa552!important}
+.footer__benefit-icon svg{stroke:#1fa552!important}
+
+/* =====================================================
+   FOOTER — LIGHT CLEAN THEME
+   ===================================================== */
+.site-footer{background:#fff!important;color:#5a5a5a!important;border-top:1px solid #ebebeb!important;margin-top:0!important}
+
+/* Benefits row */
+.footer-benefits{background:#fafaf8!important;border-bottom:1px solid #ebebeb!important;padding:16px 0!important}
+.footer-benefits__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px!important;align-items:center}
+.footer-benefit{display:flex;align-items:center;gap:10px!important}
+.footer-benefit__icon{width:36px!important;height:36px!important;flex-shrink:0!important;display:flex!important;align-items:center!important;justify-content:center!important;background:rgba(31,165,82,0.08)!important;border-radius:8px!important}
+.footer-benefit__icon svg{stroke:#1fa552!important;width:18px!important;height:18px!important}
+.footer-benefit__text strong{color:#1d1b1b!important;font-size:0.72rem!important;font-weight:700!important;display:block;margin-bottom:1px}
+.footer-benefit__text span{color:#7a7a7a!important;font-size:0.62rem!important}
+@media(max-width:768px){
+  .footer-benefits__grid{grid-template-columns:repeat(2,1fr);gap:10px!important}
+}
+@media(max-width:480px){
+  .footer-benefits{padding:12px 0!important}
+  .footer-benefits__grid{grid-template-columns:1fr 1fr!important;gap:8px!important}
+}
+
+/* Newsletter bar */
+.site-footer__newsletter-bar{background:#f7f6f4!important;border-bottom:1px solid #edecea!important;padding:24px 0!important}
+.site-footer__newsletter-title{color:#1d1b1b!important;font-size:0.95rem!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:0.04em!important;margin-bottom:4px!important}
+.site-footer__newsletter-bar p,.site-footer__newsletter-text p{color:#7a7a7a!important;font-size:0.75rem!important;margin:0!important}
+.site-footer__newsletter-form{border:1.5px solid #e0e0e0!important;background:#fff!important;border-radius:6px!important;overflow:hidden!important;flex-direction:row!important}
+.site-footer__newsletter-input{background:#fff!important;color:#1d1b1b!important;font-size:0.8rem!important;padding:13px 16px!important;border:none!important;outline:none!important}
+.site-footer__newsletter-input::placeholder{color:#aaa!important}
+.site-footer__newsletter-btn{background:#1d1b1b!important;color:#fff!important;border-radius:0!important;font-size:0.68rem!important;font-weight:700!important;letter-spacing:0.1em!important;text-transform:uppercase!important;border:none!important;padding:13px 20px!important;transition:background 0.18s!important;display:flex!important;align-items:center!important;gap:6px!important;white-space:nowrap!important}
+.site-footer__newsletter-btn:hover{background:#333!important}
+.site-footer__newsletter-btn svg{stroke:#fff!important}
+
+/* Main grid */
+.site-footer__grid{display:grid!important;grid-template-columns:1.8fr 1fr!important;gap:40px!important;padding:32px 0 20px!important}
+@media(max-width:768px){
+  .site-footer__grid{grid-template-columns:1fr!important;gap:16px!important;padding:20px 0 12px!important}
+}
+.site-footer__brand{color:#1d1b1b!important;font-size:1.05rem!important;font-weight:800!important;letter-spacing:0.08em!important;text-transform:uppercase!important;display:block!important;margin-bottom:10px!important}
+.site-footer__about,.site-footer__address{color:#7a7a7a!important;font-size:0.73rem!important;line-height:1.7!important;margin-bottom:6px!important}
+.site-footer__whatsapp,.site-footer__email{display:inline-flex!important;align-items:center!important;gap:6px!important;color:#5a5a5a!important;font-size:0.72rem!important;margin-top:6px!important;margin-right:8px!important;border:1px solid #e8e8e8!important;padding:6px 12px!important;border-radius:6px!important;background:#fff!important;transition:all 0.18s!important}
+.site-footer__whatsapp:hover{color:#1fa552!important;border-color:#1fa552!important;background:rgba(31,165,82,0.04)!important}
+.site-footer__whatsapp svg{fill:#1fa552!important;stroke:none!important}
+.site-footer__email:hover{color:#1d1b1b!important;border-color:#1d1b1b!important}
+.site-footer__email svg{stroke:#5a5a5a!important;fill:none!important}
+.site-footer__email:hover svg{stroke:#1d1b1b!important}
+
+/* Quick links col */
+.site-footer__heading{color:#1d1b1b!important;font-size:0.7rem!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:0.1em!important;margin-bottom:10px!important}
+.site-footer__link{display:flex!important;align-items:center!important;gap:0!important;color:#6a6a6a!important;font-size:0.74rem!important;padding:0.5rem 0!important;border-bottom:1px solid #f4f4f4!important;transition:color 0.2s ease,gap 0.25s ease!important}
+.site-footer__link:last-child{border-bottom:none!important}
+.site-footer__link::before{content:'';width:0;height:1.5px;background:#1d1b1b;margin-right:0;flex-shrink:0;transition:width 0.25s ease,margin-right 0.2s ease}
+.site-footer__link:hover{color:#1d1b1b!important;gap:0.4rem!important}
+.site-footer__link:hover::before{width:10px!important;margin-right:0!important}
+
+/* Bottom bar */
+.site-footer__bottom{border-top:1px solid #f0f0f0!important;padding:12px 0!important;display:flex!important;align-items:center!important;justify-content:space-between!important;flex-wrap:wrap!important;gap:10px!important}
+.site-footer__bottom p{color:#9a9a9a!important;font-size:0.67rem!important;margin:0!important}
+.site-footer__social{display:flex!important;gap:7px!important;align-items:center!important}
+.site-footer__social-link{width:34px!important;height:34px!important;border-radius:50%!important;border:1px solid #e8e8e8!important;background:#fafaf8!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;transition:background 0.18s,border-color 0.18s,transform 0.18s!important}
+.site-footer__social-link:hover{background:#1d1b1b!important;border-color:#1d1b1b!important;transform:translateY(-2px)!important}
+.site-footer__social-link svg{stroke:#6a6a6a!important;width:15px!important;height:15px!important}
+.site-footer__social-link:hover svg{stroke:#fff!important}
+.site-footer__payment{display:flex!important;align-items:center!important;gap:6px!important;flex-wrap:wrap!important}
+.site-footer__payment svg{height:20px!important;opacity:0.55!important;filter:none!important;transition:opacity 0.15s!important}
+.site-footer__payment svg:hover{opacity:0.9!important}
+
+/* Footer toggle (mobile) */
+.site-footer__toggle{background:none!important;border:none!important;color:#7a7a7a!important;padding:0!important;cursor:pointer!important}
+.site-footer__toggle svg{stroke:#7a7a7a!important}
+
+/* Mobile footer bottom padding accounts for bottom-nav */
+@media(max-width:768px){
+  .site-footer__bottom{padding:12px 0 calc(58px + env(safe-area-inset-bottom,0px))!important}
+  .site-footer__newsletter-inner{flex-direction:column!important;text-align:center!important}
+  .site-footer__newsletter-form-wrap{min-width:auto!important;width:100%!important}
+  .site-footer__newsletter-form{flex-direction:column!important;border-radius:8px!important}
+  .site-footer__newsletter-input{padding:12px 14px!important;text-align:left!important;border-bottom:1px solid #e8e8e8!important}
+  .site-footer__newsletter-btn{border-radius:0 0 6px 6px!important;justify-content:center!important;padding:12px!important}
+}
+
+/* ============================================================
+   12. FOOTER — Tablet layout
+   ============================================================ */
+@media(min-width:769px) and (max-width:1024px){
+  .site-footer__grid{
+    grid-template-columns:repeat(2,1fr)!important;
+    gap:2rem!important;
+  }
+  .site-footer__brand-col{grid-column:1/3!important}
+}
+
+/* ================================================================
+   SAKHI v10.4 — USP Scrolling Strip (above footer)
+   Seamless marquee with icon + bold title + grey subtext.
+   ================================================================ */
+
+.usp-strip{
+  background:#fafafa;
+  border-top:1px solid #ececec;
+  border-bottom:1px solid #ececec;
+  overflow:hidden;
+  position:relative;
+  padding:18px 0;
+}
+.usp-strip::before,
+.usp-strip::after{
+  content:'';
+  position:absolute;top:0;bottom:0;width:80px;
+  z-index:2;pointer-events:none;
+}
+.usp-strip::before{left:0;background:linear-gradient(to right,#fafafa,rgba(250,250,250,0))}
+.usp-strip::after{right:0;background:linear-gradient(to left,#fafafa,rgba(250,250,250,0))}
+
+.usp-strip__track{
+  display:flex;
+  width:max-content;
+  animation:uspMarquee 40s linear infinite;
+  will-change:transform;
+}
+.usp-strip:hover .usp-strip__track{animation-play-state:paused}
+
+.usp-strip__list{
+  display:flex;
+  list-style:none;
+  margin:0;padding:0;
+  gap:48px;
+  padding-right:48px;
+}
+
+.usp-strip__item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+.usp-strip__icon{
+  width:42px;height:42px;
+  border-radius:50%;
+  background:#fff;
+  border:1px solid #ececec;
+  display:flex;align-items:center;justify-content:center;
+  color:#1d1b1b;
+  flex-shrink:0;
+}
+.usp-strip__icon svg{width:22px;height:22px}
+
+.usp-strip__text{display:flex;flex-direction:column;line-height:1.25}
+.usp-strip__text strong{
+  font-size:0.84rem;
+  font-weight:700;
+  color:#1d1b1b;
+  letter-spacing:0;
+}
+.usp-strip__text span{
+  font-size:0.72rem;
+  color:#878787;
+  font-weight:400;
+  margin-top:2px;
+}
+
+/* ---- Background variants ---- */
+.usp-strip.is-dark,
+.section-usp-strip[data-background="dark"] .usp-strip,
+.usp-strip[data-bg="dark"]{
+  background:#0a0a0a;border-color:rgba(255,255,255,0.06);
+}
+.usp-strip.is-dark::before{background:linear-gradient(to right,#0a0a0a,rgba(10,10,10,0))}
+.usp-strip.is-dark::after{background:linear-gradient(to left,#0a0a0a,rgba(10,10,10,0))}
+.usp-strip.is-dark .usp-strip__icon{background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.12);color:#fff}
+.usp-strip.is-dark .usp-strip__text strong{color:#fff}
+.usp-strip.is-dark .usp-strip__text span{color:rgba(255,255,255,0.5)}
+
+@keyframes uspMarquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* ---- Mobile ---- */
+@media(max-width:640px){
+  .usp-strip{padding:14px 0}
+  .usp-strip__list{gap:32px;padding-right:32px}
+  .usp-strip__icon{width:36px;height:36px}
+  .usp-strip__icon svg{width:18px;height:18px}
+  .usp-strip__text strong{font-size:0.78rem}
+  .usp-strip__text span{font-size:0.66rem}
+  .usp-strip::before,.usp-strip::after{width:40px}
+}
+
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce){
+  .usp-strip__track{animation:none;transform:translateX(0)}
+}
+
+/* ================================================================
+   END SAKHI v10.4 USP STRIP
+   ================================================================ */
+
+
+/* ================================================================
+   SAKHI v10.9 — Scoped fixes for PLP/PDP/home/footer
+   1. Restore card spacing in carousels (Home, PDP related)
+   2. Light-theme PDP options area (no dark wrapper)
+   3. SALE badge tucked inside image corner
+   4. Hover quick-add disabled on home, enabled only on PLP
+   5. Home section spacing + footer polish
+   ================================================================ */
+
+/* ---- 10.9.1 — Limit hairline-gap rules to the actual collection grid ---- */
+/* The v10.1 rules previously hit any .grid--4, including the home page and
+   carousel slides. Re-scope to just the collection PLP. */
+@media(max-width:640px){
+  /* Reset broad rule */
+  .grid--4{background:transparent!important;gap:14px!important}
+  .grid--4 > *{background:transparent!important}
+
+  /* Re-apply hairline grid only on the actual collection template */
+  .template-collection .collection-grid.grid--4,
+  .template-search .collection-grid.grid--4{
+    background:#ececec!important;
+    gap:1px!important;
+  }
+  .template-collection .collection-grid.grid--4 > *,
+  .template-search .collection-grid.grid--4 > *{background:#fff!important}
+}
+
+/* ---- 10.9.2 — Carousel cards (Home + PDP related) get proper gap ---- */
+.carousel__track{gap:14px!important}
+@media(max-width:640px){.carousel__track{gap:10px!important}}
+.carousel__slide{padding:0!important}
+
+/* Bring back card chrome on carousels/home (overriding the strip rule) */
+.carousel__slide .product-card,
+:not(.template-collection):not(.template-search) .product-card{
+  border:1px solid #ececec!important;
+  border-radius:10px!important;
+  background:#fff!important;
+  box-shadow:none!important;
+  overflow:hidden;
+}
+.carousel__slide .product-card__media-wrap,
+:not(.template-collection):not(.template-search) .product-card__media-wrap{
+  border-radius:10px 10px 0 0!important;
+}
+/* Title back to 2 lines on home/carousels for readability */
+.carousel__slide .product-card__title,
+.template-index .product-card__title{
+  -webkit-line-clamp:2!important;line-clamp:2!important;
+  font-size:0.82rem!important;
+}
+
+/* ---- 10.9.3 — Hide hover quick-add on home; show only on PLP cards ---- */
+/* Disable hover-overlay on home, PDP carousels, related, and any non-PLP context */
+.template-index .product-card__quick-add,
+.pdp-recommendations .product-card__quick-add,
+.featured-collection .product-card__quick-add,
+.tabbed-collections .product-card__quick-add,
+.carousel__slide .product-card__quick-add{
+  display:none!important;
+}
+/* Keep PLP behaviour (collection + search templates) */
+.template-collection .product-card__quick-add,
+.template-search .product-card__quick-add{display:block}
+
+/* ---- 10.9.4 — PDP options area: light theme, clean buttons ---- */
+.product-info,
+.product-info > form,
+.product-info__options,
+.product-info__quantity{
+  background:transparent!important;
+  color:#1d1b1b!important;
+}
+.product-info__options{
+  background:#fff!important;
+  border:1px solid #ececec!important;
+  border-radius:12px!important;
+  padding:18px 18px 14px!important;
+  margin-bottom:14px!important;
+}
+.product-info__quantity{
+  background:#fff!important;
+  border:1px solid #ececec!important;
+  border-radius:12px!important;
+  padding:14px 18px!important;
+  margin-bottom:14px!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:18px!important;
+}
+.product-info__quantity .product-option__label{
+  margin-bottom:0!important;
+  color:#424553!important;
+}
+
+/* Section labels (SIZE / COLOR / QUANTITY) */
+.product-info__options .product-option__label,
+.product-info__quantity .product-option__label{
+  color:#424553!important;
+  font-size:0.7rem!important;
+  font-weight:700!important;
+  letter-spacing:0.1em!important;
+  text-transform:uppercase!important;
+}
+
+/* Option buttons — white card with dark border, selected = black fill */
+.product-option__value,
+.product-option__btn{
+  background:#fff!important;
+  color:#1d1b1b!important;
+  border:1.5px solid #dcdcdc!important;
+  border-radius:8px!important;
+  padding:10px 18px!important;
+  font-size:0.8rem!important;
+  font-weight:600!important;
+  letter-spacing:0.02em!important;
+  min-height:42px!important;
+  box-shadow:none!important;
+  transition:border-color 0.15s,background 0.15s,color 0.15s,transform 0.1s!important;
+}
+.product-option__value:hover,
+.product-option__btn:hover{
+  border-color:#1d1b1b!important;
+  background:#fff!important;
+  color:#1d1b1b!important;
+  box-shadow:none!important;
+}
+.product-option__value.selected,
+.product-option__value[aria-pressed="true"],
+.product-option__btn.active,
+.product-option__btn[aria-pressed="true"]{
+  background:#1d1b1b!important;
+  color:#fff!important;
+  border-color:#1d1b1b!important;
+  box-shadow:none!important;
+}
+.product-option__value.unavailable,
+.product-option__btn.out-of-stock{
+  background:#fafafa!important;
+  color:#bdbdbd!important;
+  border-color:#f0f0f0!important;
+  text-decoration:line-through!important;
+}
+
+/* Quantity selector */
+.quantity-selector{
+  border:1.5px solid #ececec!important;
+  border-radius:8px!important;
+  overflow:hidden;
+  background:#fff!important;
+}
+.quantity-selector button{
+  background:#fff!important;
+  color:#1d1b1b!important;
+  width:38px!important;
+  height:38px!important;
+}
+.quantity-selector button:hover{background:#fafafa!important}
+.quantity-selector input{
+  width:46px!important;
+  text-align:center;
+  border:none!important;
+  background:transparent!important;
+  font-weight:600;
+  color:#1d1b1b!important;
+}
+
+/* ---- 10.9.5 — SALE badge sits INSIDE image, top-left corner ---- */
+.product-gallery__viewport,
+.product-gallery__main{
+  position:relative!important;
+  overflow:hidden!important;
+}
+.product-gallery__badge{
+  position:absolute!important;
+  top:14px!important;
+  left:14px!important;
+  z-index:5!important;
+  padding:5px 12px!important;
+  border-radius:4px!important;
+  font-size:0.66rem!important;
+  font-weight:800!important;
+  letter-spacing:0.1em!important;
+  text-transform:uppercase!important;
+  box-shadow:0 2px 8px rgba(0,0,0,0.12)!important;
+  line-height:1.2!important;
+}
+.product-gallery__badge--sale{
+  background:#fb641b!important;
+  color:#fff!important;
+}
+@media(max-width:640px){
+  .product-gallery__badge{top:10px!important;left:10px!important;padding:4px 10px!important;font-size:0.6rem!important}
+}
+
+/* ---- 10.9.6 — Home page section spacing + alignment ---- */
+.template-index .main-content > .shopify-section,
+.template-index .main-content > section{margin:0!important}
+.template-index .section{padding:clamp(28px,4vw,52px) 0!important}
+.template-index .section + .section{padding-top:0!important}
+.template-index .section-header{margin-bottom:clamp(14px,2vw,22px)!important;text-align:center}
+.template-index .section-header__title{
+  font-size:clamp(1.3rem,2.6vw,1.8rem)!important;
+  font-weight:700!important;
+  letter-spacing:-0.01em!important;
+  margin:0!important;
+}
+.template-index .section-header__subtitle{
+  font-size:0.7rem!important;
+  letter-spacing:0.14em!important;
+  margin-bottom:0.5rem!important;
+}
+/* Container padding — consistent */
+.template-index .container{
+  padding-left:clamp(14px,4vw,32px)!important;
+  padding-right:clamp(14px,4vw,32px)!important;
+}
+/* Hero shouldn't have top margin (already touching header) */
+.template-index .hero-slider{margin-top:0!important}
+
+/* Featured/tabbed/trending grids on home: clear visible card chrome */
+.template-index .featured-collection .product-grid,
+.template-index .tabbed-collections .product-grid{
+  gap:clamp(12px,1.4vw,20px)!important;
+}
+
+/* ---- 10.9.7 — Footer alignment + spacing polish ---- */
+.site-footer{padding-top:0!important}
+.site-footer__grid{
+  padding:clamp(2rem,4vw,3rem) 0!important;
+  gap:clamp(2rem,4vw,3.5rem)!important;
+  display:grid!important;
+  grid-template-columns:1.4fr repeat(3, 1fr)!important;
+  align-items:start;
+}
+@media(max-width:960px){
+  .site-footer__grid{grid-template-columns:1fr 1fr!important;gap:2rem!important}
+}
+@media(max-width:560px){
+  .site-footer__grid{grid-template-columns:1fr!important;gap:1.25rem!important}
+  .site-footer__brand-col{text-align:center}
+  .site-footer__menu-col{border-top:1px solid rgba(255,255,255,0.06);padding-top:1rem}
+}
+.site-footer__brand{
+  font-size:1.5rem!important;
+  letter-spacing:0.2em!important;
+  margin-bottom:1rem!important;
+  display:block;
+}
+.site-footer__about{margin-bottom:1.25rem!important;max-width:32ch}
+.site-footer__menu-title{margin-bottom:0.85rem!important}
+.site-footer__bottom{
+  padding:1.25rem 0!important;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+  font-size:0.74rem!important;
+}
+@media(max-width:560px){
+  .site-footer__bottom{justify-content:center;text-align:center}
+}
+.footer-benefits__grid{
+  display:grid!important;
+  grid-template-columns:repeat(4,1fr)!important;
+  gap:clamp(1rem,2vw,2rem)!important;
+  align-items:center;
+}
+@media(max-width:768px){
+  .footer-benefits__grid{grid-template-columns:repeat(2,1fr)!important;gap:1rem!important}
+}
+.footer-benefit{
+  display:flex;align-items:center;gap:12px;
+}
+.footer-benefit__icon{flex-shrink:0;width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#fff!important;opacity:0.85}
+.footer-benefit__text{display:flex;flex-direction:column;line-height:1.3}
+.footer-benefit__text strong{font-size:0.78rem;font-weight:600;color:#fff!important;letter-spacing:0!important;text-transform:none!important}
+.footer-benefit__text span{font-size:0.7rem;color:rgba(255,255,255,0.55)!important;margin-top:2px}
+
+/* ---- 10.9.8 — Spacing for PDP recommendations carousel ---- */
+.pdp-recommendations{
+  padding:2rem 0 1.5rem!important;
+  border-top:1px solid #ececec!important;
+}
+.pdp-recommendations .bwk-section__head{
+  margin-bottom:1.25rem!important;
+  display:flex;align-items:baseline;justify-content:space-between;
+}
+.pdp-recommendations .bwk-section__title{
+  font-size:1.1rem!important;font-weight:700!important;
+  letter-spacing:-0.01em!important;margin:0!important;
+  color:#1d1b1b!important;
+}
+.pdp-reco-carousel .carousel__track{gap:16px!important}
+@media(max-width:640px){
+  .pdp-reco-carousel .carousel__track{gap:10px!important}
+  .pdp-recommendations{padding:1.25rem 0 1rem!important}
+  .pdp-recommendations .bwk-section__title{font-size:0.95rem!important}
+}
+
+/* ================================================================
+   END SAKHI v10.9 SCOPED FIXES
+   ================================================================ */
+
+
+/* ================================================================
+   SAKHI v15.6 — FOOTER POLISH
+   ================================================================ */
+.site-footer{
+  background:#0e0e10!important;
+  color:#cfcfd2!important;
+  padding:32px 0 0!important;
+  margin-top:0;
+}
+.site-footer .container{
+  max-width:1440px!important;
+  padding:0 clamp(14px, 3vw, 28px)!important;
+}
+
+.site-footer__grid{
+  display:grid!important;
+  grid-template-columns:repeat(4, 1fr)!important;
+  gap:36px;
+  padding-bottom:36px;
+  border-bottom:1px solid #26262a;
+}
+@media (max-width: 900px){
+  .site-footer__grid{ grid-template-columns:repeat(2, 1fr)!important; gap:28px; }
+}
+@media (max-width: 480px){
+  .site-footer__grid{ grid-template-columns:1fr!important; gap:24px; }
+}
+
+.site-footer__col-title{
+  font-size:12px!important;
+  font-weight:700!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase;
+  color:#fff!important;
+  margin:0 0 16px!important;
+}
+
+.site-footer__links{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
+.site-footer__links a,
+.site-footer__link{
+  display:inline-block;
+  font-size:13px!important;
+  color:#cfcfd2!important;
+  text-decoration:none!important;
+  font-weight:500!important;
+  letter-spacing:.005em!important;
+  line-height:1.5!important;
+  transition:color .15s;
+}
+.site-footer__links a:hover,
+.site-footer__link:hover{
+  color:#fff!important;
+}
+
+.site-footer__brand-block{
+  display:flex; flex-direction:column; gap:14px;
+}
+.site-footer__brand-block img{
+  max-height:36px; width:auto; filter:brightness(0) invert(1);
+}
+.site-footer__brand-tagline{
+  font-size:13px; color:#9aa0aa; line-height:1.5;
+}
+.site-footer__socials{
+  display:flex; gap:8px;
+  margin-top:6px;
+}
+.site-footer__social-link{
+  width:36px; height:36px;
+  border-radius:50%;
+  background:#1c1c1f;
+  color:#fff;
+  display:inline-flex; align-items:center; justify-content:center;
+  transition:background .15s, transform .15s;
+}
+.site-footer__social-link:hover{
+  background:#ff6a00;
+  transform:translateY(-2px);
+}
+
+/* Newsletter inside footer */
+.site-footer__newsletter{ display:flex; flex-direction:column; gap:8px; }
+.site-footer__newsletter p{ font-size:13px; color:#9aa0aa; margin:0; line-height:1.4; }
+.site-footer__newsletter-form{
+  display:flex; gap:6px;
+  background:#1c1c1f;
+  border-radius:99px;
+  padding:4px;
+  border:1px solid #26262a;
+}
+.site-footer__newsletter-form input[type="email"]{
+  flex:1;
+  background:transparent;
+  border:0;
+  color:#fff;
+  padding:8px 12px;
+  font-size:13px;
+  outline:none;
+}
+.site-footer__newsletter-form input::placeholder{ color:#7e8290; }
+.site-footer__newsletter-form button{
+  padding:8px 18px;
+  background:#ff6a00;
+  border:0;
+  border-radius:99px;
+  color:#fff;
+  font-size:12px; font-weight:700;
+  letter-spacing:.04em;
+  cursor:pointer;
+  text-transform:uppercase;
+  transition:background .15s, transform .15s;
+}
+.site-footer__newsletter-form button:hover{ background:#ff5722; transform:translateY(-1px); }
+
+/* Bottom strip */
+.site-footer__bottom{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px; flex-wrap:wrap;
+  padding:18px 0;
+  font-size:12px;
+  color:#7e8290;
+}
+.site-footer__copyright{ font-weight:500; }
+.site-footer__payments{
+  display:flex; align-items:center; gap:8px;
+}
+.site-footer__payments img,
+.site-footer__payments svg{
+  height:22px; opacity:0.85;
+  filter:grayscale(0.3);
+}
+/* ================================================================
+   END SAKHI v15.6 FOOTER
+   ================================================================ */
+
+/* ================================================================
+   SAKHI v16.2 — CART DRAWER ITEMS + FOOTER POLISH
+   ================================================================ */
+.cart-drawer{
+  background:#fff!important;
+  display:flex; flex-direction:column;
+}
+.cart-drawer__items{
+  flex:1;
+  overflow-y:auto;
+  padding:14px 16px!important;
+  display:flex; flex-direction:column; gap:12px;
+}
+.cart-drawer__item{
+  display:grid!important;
+  grid-template-columns:80px 1fr!important;
+  gap:12px!important;
+  padding:12px!important;
+  background:#fafafa!important;
+  border:1px solid #f0f0f0!important;
+  border-radius:10px!important;
+  transition:border-color .15s, background .15s;
+}
+.cart-drawer__item:hover{ border-color:#e0e0e0; background:#fff; }
+.cart-drawer__item-image{
+  width:80px; height:100px;
+  border-radius:8px;
+  overflow:hidden;
+  background:#f5f5f7;
+}
+.cart-drawer__item-image img{ width:100%; height:100%; object-fit:cover; display:block; }
+.cart-drawer__item-info{ display:flex; flex-direction:column; gap:4px; min-width:0; }
+.cart-drawer__item-title{
+  font-size:13px!important; font-weight:500!important;
+  color:#1a1a1a!important;
+  text-decoration:none!important;
+  line-height:1.3!important;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.cart-drawer__item-title:hover{ color:#ff6a00!important; }
+.cart-drawer__item-variant{
+  font-size:11.5px; color:#7e8290;
+  margin-top:2px;
+}
+.cart-drawer__item-price{
+  font-size:14px!important; font-weight:700!important;
+  color:#111!important;
+  margin-top:auto!important;
+}
+.cart-drawer__item-actions{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:8px;
+  margin-top:6px;
+}
+.cart-drawer__qty{
+  display:inline-flex; align-items:center;
+  background:#fff;
+  border:1px solid #e0e0e0;
+  border-radius:6px;
+  overflow:hidden;
+}
+.cart-drawer__qty button{
+  width:28px; height:28px;
+  background:transparent;
+  border:0;
+  font-size:14px; font-weight:600;
+  color:#1a1a1a;
+  cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+}
+.cart-drawer__qty button:hover{ background:#f5f5f7; color:#ff6a00; }
+.cart-drawer__qty span{
+  min-width:24px; text-align:center;
+  font-size:13px; font-weight:600;
+  color:#1a1a1a;
+  font-variant-numeric:tabular-nums;
+}
+.cart-drawer__item-remove{
+  background:transparent;
+  border:0;
+  width:28px; height:28px;
+  border-radius:50%;
+  color:#9aa0aa;
+  cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+  transition:background .15s, color .15s;
+}
+.cart-drawer__item-remove:hover{ background:#fff5f5; color:#dc2626; }
+
+/* Shipping bar */
+.cart-drawer__shipping-bar{
+  padding:12px 16px!important;
+  background:linear-gradient(180deg, #fff8f0 0%, #fff 100%);
+  border-bottom:1px solid #ffd8b8;
+}
+.cart-drawer__shipping-text{
+  font-size:12.5px!important;
+  font-weight:500;
+  color:#7a4b1d;
+  margin-bottom:6px;
+  display:flex; align-items:center; gap:6px;
+}
+.cart-drawer__shipping-text strong{ font-weight:700; color:#dc6803; }
+.cart-drawer__shipping-text--success{ color:#15803d; }
+.cart-drawer__shipping-text--success strong{ color:#16a34a; }
+.cart-drawer__shipping-progress{
+  height:6px;
+  background:#fde9d6;
+  border-radius:99px;
+  overflow:hidden;
+}
+.cart-drawer__shipping-fill{
+  height:100%;
+  background:linear-gradient(90deg, #ff8c42, #ff6a00);
+  border-radius:99px;
+  transition:width .5s ease-out;
+  position:relative;
+}
+.cart-drawer__shipping-fill::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+  animation:sk-shimmer 1.8s linear infinite;
+}
+@keyframes sk-shimmer{ from{ transform:translateX(-100%) } to{ transform:translateX(100%) } }
+.cart-drawer__shipping-text--success ~ .cart-drawer__shipping-progress .cart-drawer__shipping-fill,
+.cart-drawer__shipping-bar:has(.cart-drawer__shipping-text--success) .cart-drawer__shipping-fill{
+  background:linear-gradient(90deg, #16a34a, #22c55e);
+}
+
+/* Footer */
+.cart-drawer__footer{
+  padding:14px 16px 16px!important;
+  border-top:1px solid #ececec!important;
+  background:#fff!important;
+}
+.cart-drawer__subtotal{
+  display:flex!important;
+  align-items:center; justify-content:space-between;
+  font-size:14px!important;
+  margin-bottom:12px;
+  color:#1a1a1a;
+}
+.cart-drawer__subtotal-price{
+  font-size:18px!important; font-weight:800!important;
+  color:#111!important;
+  font-variant-numeric:tabular-nums;
+}
+.cart-drawer__checkout-form .btn{
+  width:100%;
+  padding:14px!important;
+  font-size:13px!important;
+  font-weight:700!important;
+  letter-spacing:.06em!important;
+  text-transform:uppercase;
+  border-radius:8px!important;
+  background:#111!important;
+  color:#fff!important;
+  border:0!important;
+  cursor:pointer;
+  transition:background .15s, transform .15s;
+}
+.cart-drawer__checkout-form .btn:hover{ background:#ff6a00!important; transform:translateY(-1px); }
+
+.cart-drawer__note{
+  font-size:11px!important;
+  color:#7e8290!important;
+  text-align:center;
+  margin:6px 0 0!important;
+  line-height:1.4;
+}
+
+.payment-icons--drawer{ margin-top:0; }
+.payment-icons__list{
+  display:flex; gap:5px; flex-wrap:wrap; justify-content:center;
+}
+.payment-icon{ display:inline-flex; opacity:0.85; transition:opacity .15s; }
+.payment-icon:hover{ opacity:1; }
+
+
+/* ================================================================
+   END SAKHI v16.2 CART DRAWER
+   ================================================================ */
+
+/* ================================================================
+   SAKHI v25 — PDP OPTIONS · OFFERS STRIP · ACCORDION · FOOTER
+   ================================================================ */
+
+/* ── PDP option label ───────────────────────────────────────── */
+.product-option__label{font-size:12px!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:.1em!important;color:#1a1a1a!important;margin-bottom:10px!important;display:flex!important;align-items:center!important;gap:4px!important;flex-wrap:wrap!important;}
+.product-option__selected-val{font-weight:400!important;text-transform:none!important;letter-spacing:.01em!important;color:#555!important;font-size:12px!important;}
+
+/* ── Size / text option chips — NO hover background ─────────── */
+.product-option__value{padding:9px 18px!important;border:1.5px solid #e0e0e0!important;border-radius:5px!important;font-size:13px!important;font-weight:500!important;color:#1a1a1a!important;background:#fff!important;cursor:pointer!important;transition:border-color .15s ease!important;min-height:40px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;letter-spacing:.01em!important;box-shadow:none!important;}
+.product-option__value:hover{border-color:#1a1a1a!important;background:#fff!important;box-shadow:none!important;transform:none!important;}
+.product-option__value.selected,.product-option__value[aria-pressed="true"]{border-color:#111!important;background:#111!important;color:#fff!important;box-shadow:none!important;}
+.product-option__value.unavailable{opacity:.4!important;text-decoration:line-through!important;cursor:default!important;}
+
+/* ── Color swatch squares ───────────────────────────────────── */
+.product-option__value.product-option__value--color-swatch{
+  width:34px!important;
+  height:34px!important;
+  min-height:34px!important;
+  min-width:34px!important;
+  padding:0!important;
+  border-radius:6px!important;
+  border:2px solid transparent!important;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,0.15)!important;
+  cursor:pointer!important;
+  transition:box-shadow .15s ease, transform .15s ease!important;
+  position:relative!important;
+  background:var(--swatch-bg,#ccc)!important;
+  color:transparent!important;
+  font-size:0!important;
+}
+.product-option__value.product-option__value--color-swatch:hover{
+  transform:scale(1.1)!important;
+  box-shadow:0 0 0 2.5px #111!important;
+}
+.product-option__value.product-option__value--color-swatch.selected,
+.product-option__value.product-option__value--color-swatch[aria-pressed="true"]{
+  background:var(--swatch-bg,#ccc)!important;
+  box-shadow:0 0 0 2px #fff, 0 0 0 4px #111!important;
+  transform:none!important;
+}
+
+/* ── Available Offers strip redesign ────────────────────────── */
+.available-offers{border:1px solid #f0ece8!important;border-radius:10px!important;overflow:hidden!important;margin:14px 0!important;background:#fffdf9!important;}
+.available-offers__head{display:flex!important;align-items:center!important;gap:8px!important;padding:10px 14px 8px!important;border-bottom:1px solid #f0ece8!important;background:#fff8f0!important;}
+.available-offers__icon{color:#ff6a00!important;flex-shrink:0!important;display:flex!important;align-items:center!important;}
+.available-offers__title{font-size:11px!important;font-weight:800!important;text-transform:uppercase!important;letter-spacing:.1em!important;color:#1a1a1a!important;margin:0!important;}
+.available-offers__list{list-style:none!important;padding:0!important;margin:0!important;display:flex!important;flex-direction:column!important;gap:0!important;}
+.available-offer{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;padding:11px 14px!important;border-bottom:1px solid #f5f0eb!important;background:#fffdf9!important;transition:background .15s!important;}
+.available-offer:last-child{border-bottom:none!important;}
+.available-offer:hover{background:#fff8f0!important;}
+.available-offer__body{flex:1;min-width:0;}
+.available-offer__title{font-size:12.5px!important;font-weight:600!important;color:#1a1a1a!important;line-height:1.4!important;display:block!important;}
+.available-offer__desc{font-size:11px!important;color:#888!important;margin-top:2px!important;line-height:1.4!important;display:block!important;}
+.available-offer__code{display:inline-flex!important;align-items:center!important;gap:5px!important;padding:5px 12px!important;border:1.5px dashed #ff6a00!important;border-radius:5px!important;background:transparent!important;color:#ff6a00!important;font-size:11px!important;font-weight:800!important;letter-spacing:.06em!important;text-transform:uppercase!important;cursor:pointer!important;white-space:nowrap!important;transition:background .15s, color .15s!important;flex-shrink:0!important;}
+.available-offer__code:hover{background:#ff6a00!important;color:#fff!important;}
+.available-offer__copy{font-size:9px!important;font-weight:600!important;letter-spacing:.05em!important;opacity:.7!important;}
+
+/* ── Accordion ──────────────────────────────────────────────── */
+.accordion-item{border-bottom:1px solid #ececec!important;border-left:none!important;padding-left:0!important;}
+.accordion-item.open{border-left:none!important;padding-left:0!important;}
+.accordion-trigger{padding:14px 0!important;font-size:12px!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:.1em!important;color:#1a1a1a!important;}
+.accordion-trigger:hover{color:#1a1a1a!important;}
+.accordion-chev{width:16px!important;height:16px!important;color:#999!important;}
+.accordion-content__inner{font-size:13px!important;line-height:1.8!important;color:#555!important;padding:0 2px 14px!important;overflow:hidden!important;}
+.accordion-content__inner p{margin-bottom:8px!important;color:#555!important;font-size:13px!important;}
+.accordion-content__inner strong{color:#1a1a1a!important;font-weight:600!important;}
+.accordion-content__inner ul{padding-left:18px!important;}
+.accordion-content__inner li{margin-bottom:5px!important;color:#555!important;font-size:13px!important;}
+
+/* ── Footer benefits row ────────────────────────────────────── */
+.footer-benefits{background:#f9f8f6!important;border-top:1px solid #ececec!important;border-bottom:1px solid #ececec!important;padding:20px 0!important;}
+.footer-benefits__grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;}
+@media(max-width:768px){.footer-benefits__grid{grid-template-columns:repeat(2,1fr)!important;}}
+.footer-benefit{display:flex!important;align-items:center!important;gap:12px!important;padding:12px 20px!important;border-right:1px solid #e8e8e8!important;}
+.footer-benefit:last-child{border-right:none!important;}
+@media(max-width:768px){.footer-benefit{padding:10px 14px!important;border-right:none!important;border-bottom:1px solid #e8e8e8!important;}}
+.footer-benefit__icon{flex-shrink:0!important;width:36px!important;height:36px!important;background:#fff!important;border-radius:8px!important;display:flex!important;align-items:center!important;justify-content:center!important;box-shadow:0 1px 4px rgba(0,0,0,0.07)!important;}
+.footer-benefit__icon svg{stroke:#ff6a00!important;}
+.footer-benefit__text{display:flex!important;flex-direction:column!important;gap:1px!important;}
+.footer-benefit__text strong{font-size:11.5px!important;font-weight:700!important;color:#1a1a1a!important;text-transform:uppercase!important;letter-spacing:.05em!important;}
+.footer-benefit__text span{font-size:11px!important;color:#888!important;line-height:1.3!important;}
+
+/* ── Newsletter bar ─────────────────────────────────────────── */
+.site-footer__newsletter-bar{background:#1a1a1a!important;padding:32px 0!important;border-bottom:1px solid rgba(255,255,255,0.07)!important;}
+.site-footer__newsletter-inner{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:24px!important;flex-wrap:wrap!important;}
+.site-footer__newsletter-text h4{font-size:18px!important;font-weight:700!important;color:#fff!important;margin:0 0 4px!important;letter-spacing:-.01em!important;}
+.site-footer__newsletter-text p{font-size:13px!important;color:rgba(255,255,255,0.5)!important;margin:0!important;}
+.site-footer__newsletter-form{display:flex!important;border-radius:8px!important;overflow:hidden!important;border:1px solid rgba(255,255,255,0.15)!important;}
+.site-footer__newsletter-input{background:rgba(255,255,255,0.07)!important;border:none!important;color:#fff!important;font-size:13px!important;padding:12px 16px!important;min-width:200px!important;flex:1!important;outline:none!important;}
+.site-footer__newsletter-input::placeholder{color:rgba(255,255,255,0.3)!important;}
+.site-footer__newsletter-btn{background:#ff6a00!important;color:#fff!important;border:none!important;padding:12px 18px!important;font-size:11px!important;font-weight:700!important;letter-spacing:.08em!important;text-transform:uppercase!important;cursor:pointer!important;display:flex!important;align-items:center!important;gap:6px!important;transition:background .15s!important;white-space:nowrap!important;}
+.site-footer__newsletter-btn:hover{background:#e55f00!important;}
+
+/* ── Footer main grid ───────────────────────────────────────── */
+.site-footer{background:#111!important;}
+.site-footer>.container>.site-footer__grid{display:grid!important;grid-template-columns:1.6fr 1fr!important;gap:40px!important;padding:44px 0 36px!important;border-bottom:1px solid rgba(255,255,255,0.08)!important;}
+@media(max-width:768px){.site-footer>.container>.site-footer__grid{grid-template-columns:1fr!important;gap:28px!important;padding:32px 0 24px!important;}}
+.site-footer__brand{font-size:22px!important;font-weight:800!important;color:#fff!important;letter-spacing:-.02em!important;text-decoration:none!important;display:block!important;margin-bottom:12px!important;}
+.site-footer__about{font-size:13px!important;line-height:1.75!important;color:rgba(255,255,255,0.45)!important;margin:0 0 16px!important;max-width:320px!important;}
+.site-footer__address{font-size:12px!important;color:rgba(255,255,255,0.35)!important;line-height:1.6!important;margin-bottom:14px!important;}
+.site-footer__whatsapp,.site-footer__email{display:inline-flex!important;align-items:center!important;gap:7px!important;font-size:12.5px!important;color:rgba(255,255,255,0.5)!important;text-decoration:none!important;margin-bottom:8px!important;transition:color .15s!important;}
+.site-footer__whatsapp:hover{color:#25D366!important;}
+.site-footer__email:hover{color:#fff!important;}
+.site-footer__heading-wrap{margin-bottom:14px!important;}
+.site-footer__heading{font-size:11px!important;font-weight:800!important;text-transform:uppercase!important;letter-spacing:.14em!important;color:rgba(255,255,255,0.35)!important;margin:0!important;}
+.site-footer__links{display:flex!important;flex-direction:column!important;gap:9px!important;}
+.site-footer__link{font-size:13.5px!important;color:rgba(255,255,255,0.5)!important;text-decoration:none!important;transition:color .15s!important;line-height:1.3!important;}
+.site-footer__link:hover{color:#fff!important;}
+
+/* ── Footer bottom bar ──────────────────────────────────────── */
+.site-footer__bottom{display:flex!important;align-items:center!important;justify-content:space-between!important;flex-wrap:wrap!important;gap:12px!important;padding:18px 0!important;background:transparent!important;}
+.site-footer__bottom p{font-size:11.5px!important;color:rgba(255,255,255,0.28)!important;margin:0!important;}
+.site-footer__social{display:flex!important;align-items:center!important;gap:6px!important;}
+.site-footer__social-link{width:32px!important;height:32px!important;border-radius:7px!important;background:rgba(255,255,255,0.07)!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;color:rgba(255,255,255,0.45)!important;text-decoration:none!important;transition:background .15s,color .15s!important;}
+.site-footer__social-link:hover{background:rgba(255,255,255,0.14)!important;color:#fff!important;}
+.site-footer__social-link svg{width:14px!important;height:14px!important;}
+.site-footer__payment{display:flex!important;align-items:center!important;gap:6px!important;flex-wrap:wrap!important;}
+.site-footer__payment svg,.site-footer__payment img{height:22px!important;width:auto!important;opacity:.5!important;filter:brightness(10)!important;}
+
+/* ================================================================
+   TRUST STRIP — Secure Payment · Easy Returns · Fast Delivery · Support
+   4-col on desktop, 2×2 grid on mobile
+   ================================================================ */
+.trust-strip{
+  background:#fff;
+  border-top:1px solid #ececec;
+  border-bottom:1px solid #ececec;
+  padding:0;
+}
+.trust-strip__grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+/* Individual card */
+.trust-strip__card{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:clamp(16px,2.2vw,24px) clamp(16px,2.5vw,28px);
+  border-right:1px solid #ececec;
+  background:#fff;
+  transition:background 0.22s;
+  position:relative;
+}
+.trust-strip__card:last-child{
+  border-right:none;
+}
+.trust-strip__card:hover{
+  background:#fafaf8;
+}
+
+/* Icon circle */
+.trust-strip__icon-wrap{
+  flex-shrink:0;
+  width:48px;
+  height:48px;
+  border-radius:14px;
+  background:#f4f4f2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#1d1b1b;
+  transition:background 0.22s ease, color 0.22s ease, transform 0.22s ease;
+}
+.trust-strip__icon-wrap svg{
+  width:22px !important;
+  height:22px !important;
+  stroke:currentColor;
+  flex-shrink:0;
+}
+.trust-strip__card:hover .trust-strip__icon-wrap{
+  background:#1d1b1b;
+  color:#fff;
+  transform:scale(1.08);
+}
+
+/* Text block */
+.trust-strip__body{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  min-width:0;
+}
+.trust-strip__title{
+  display:block;
+  font-size:0.82rem;
+  font-weight:700;
+  color:#1d1b1b;
+  line-height:1.25;
+  letter-spacing:-0.01em;
+  white-space:nowrap;
+}
+.trust-strip__sub{
+  display:block;
+  font-size:0.7rem;
+  color:#8e8e8e;
+  line-height:1.45;
+}
+
+/* ── Tablet (2 cols) ───────────────────────────────────────── */
+@media(max-width:900px) and (min-width:641px){
+  .trust-strip__grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:1px;
+    background:#e8e8e8;
+  }
+  .trust-strip__card{
+    border-right:none;
+    background:#fff;
+  }
+}
+
+/* ── Mobile (2×2 grid) ─────────────────────────────────────── */
+@media(max-width:640px){
+  .trust-strip{
+    border-top:1px solid #ececec;
+    border-bottom:1px solid #ececec;
+  }
+  .trust-strip__grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:1px;
+    background:#e8e8e8;
+  }
+  .trust-strip__card{
+    padding:16px 14px;
+    border-right:none;
+    background:#fff;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+  .trust-strip__card:hover{
+    background:#fff; /* suppress hover on touch */
+  }
+  .trust-strip__icon-wrap{
+    width:40px;
+    height:40px;
+    border-radius:10px;
+  }
+  .trust-strip__icon-wrap svg{
+    width:18px !important;
+    height:18px !important;
+  }
+  .trust-strip__title{
+    font-size:0.76rem;
+    white-space:normal;
+    line-height:1.3;
+  }
+  .trust-strip__sub{
+    font-size:0.65rem;
+  }
+}
+
+/* Suppress any old trust-strip elements still in the DOM */
+.trust-strip__sep,
+.trust-strip__scroll-hint{
+  display:none !important;
+}
+
+

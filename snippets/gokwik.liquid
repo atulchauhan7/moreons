@@ -4,6 +4,13 @@
  {% assign env = 'sandbox.pdp' %}
 {% endif %}
 {% if settings.goEnable %}
+ {% comment %} Warm up the checkout SDK + analytics connections early so the deferred scripts below connect faster {% endcomment %}
+ <link rel="dns-prefetch" href="https://{{ env }}.gokwik.co">
+ <link rel="preconnect" href="https://{{ env }}.gokwik.co" crossorigin>
+ {% if settings.ga4Gokwik != blank %}
+ <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+ <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+ {% endif %}
  <script>
    window.gaTag = {ga4: "{{ settings.ga4Gokwik }}"}
    window.merchantInfo  = {
@@ -121,7 +128,6 @@ gokwikCheckoutButtons.forEach(function(button) {
    display: flex;
    justify-content: center;
    align-items: center;
-   background: {{ settings.priClr }};
    position: relative;
    cursor: pointer;
    padding: 5px 10px;

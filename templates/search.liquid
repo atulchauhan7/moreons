@@ -1,0 +1,171 @@
+<div class="search-page-wrap">
+
+  {% comment %} === HERO: Search bar + popular tags === {% endcomment %}
+  <div class="search-hero">
+    <div class="container">
+      <span class="search-hero__eyebrow">Discover</span>
+      <h1 class="search-hero__title">
+        {% if search.performed %}
+          Results for "{{ search.terms | escape }}"
+        {% else %}
+          What are you looking for?
+        {% endif %}
+      </h1>
+      {% unless search.performed %}
+      <p class="search-hero__subtitle">Search from thousands of styles — kurtas, sets, dresses & more</p>
+      {% endunless %}
+
+      <div class="search-hero__form-wrap">
+        <form action="{{ routes.search_url }}" method="get" class="search-hero__form" role="search">
+          <input type="hidden" name="type" value="product">
+          <input
+            type="search"
+            name="q"
+            class="search-hero__input"
+            placeholder="Search for kurtas, sets, dresses…"
+            value="{{ search.terms | escape }}"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="none"
+            spellcheck="false"
+            aria-label="Search products"
+          >
+          <button type="submit" class="search-hero__submit" aria-label="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            Search
+          </button>
+        </form>
+
+        {% unless search.performed %}
+        <span class="search-popular-label">Trending now</span>
+        <div class="search-popular-tags">
+          <a href="{{ routes.search_url }}?q=anarkali+kurti&type=product" class="search-popular-tag">Anarkali Kurti</a>
+          <a href="{{ routes.search_url }}?q=cotton+set&type=product" class="search-popular-tag">Cotton Set</a>
+          <a href="{{ routes.search_url }}?q=palazzo+set&type=product" class="search-popular-tag">Palazzo Set</a>
+          <a href="{{ routes.search_url }}?q=ethnic+dress&type=product" class="search-popular-tag">Ethnic Dress</a>
+          <a href="{{ routes.search_url }}?q=party+wear&type=product" class="search-popular-tag">Party Wear</a>
+          <a href="{{ routes.search_url }}?q=new+arrivals&type=product" class="search-popular-tag">New Arrivals</a>
+          <a href="{{ routes.search_url }}?q=under+999&type=product" class="search-popular-tag">Under ₹999</a>
+          <a href="{{ routes.search_url }}?q=coord+set&type=product" class="search-popular-tag">Coord Set</a>
+        </div>
+        {% endunless %}
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    {% if search.performed %}
+      {% comment %} === RESULTS === {% endcomment %}
+      {% if search.results_count > 0 %}
+        <p class="search-results-count">{{ search.results_count }} result{% if search.results_count != 1 %}s{% endif %} for <strong>"{{ search.terms | escape }}"</strong></p>
+        <div class="grid grid--4" style="gap:12px" data-animate-stagger>
+          {% for item in search.results %}
+            {% if item.object_type == 'product' %}
+            <div data-animate="fade-up">
+              {% render 'product-card', product: item %}
+            </div>
+            {% elsif item.object_type == 'article' %}
+            <div data-animate="fade-up">
+              <article class="blog-card" style="border:1px solid #f0f0f0;border-radius:10px;overflow:hidden">
+                {% if item.image %}
+                <a href="{{ item.url }}" style="display:block;aspect-ratio:16/9;overflow:hidden">
+                  <img src="{{ item.image | image_url: width: 600 }}" alt="{{ item.title | escape }}" loading="lazy" width="600" height="375" style="width:100%;height:100%;object-fit:cover">
+                </a>
+                {% endif %}
+                <div style="padding:14px">
+                  <a href="{{ item.url }}"><h3 style="font-size:0.88rem;font-weight:700;color:#1d1b1b;margin-bottom:6px">{{ item.title }}</h3></a>
+                  <p style="font-size:0.75rem;color:#7a7a7a;line-height:1.6;margin:0">{{ item.content | strip_html | truncate: 110 }}</p>
+                </div>
+              </article>
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% render 'pagination', paginate: paginate %}
+      {% else %}
+        <div class="search-no-results" data-animate="fade-up">
+          <svg class="search-no-results__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          <p>No results found for <strong>"{{ search.terms | escape }}"</strong></p>
+          <p class="search-no-results__sub">Try different keywords or browse a category below</p>
+          <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary" style="display:inline-flex;margin-bottom:1rem">Browse All Products</a>
+        </div>
+      {% endif %}
+
+    {% else %}
+      {% comment %} === NO SEARCH PERFORMED: Show categories === {% endcomment %}
+    {% endif %}
+
+    {% comment %} === SHOP BY CATEGORY (always shown, or when no results) === {% endcomment %}
+    {% assign show_cats = false %}
+    {% unless search.performed and search.results_count > 0 %}
+      {% assign show_cats = true %}
+    {% endunless %}
+    {% if show_cats %}
+    <div class="search-categories-section">
+      <div class="search-categories-title">Shop by Category</div>
+      <div class="search-cat-grid">
+
+        {% assign cat_labels = 'Kurtas & Suits,Ethnic Sets,Dresses,Tops,Bottomwear,Festive Wear' | split: ',' %}
+        {% assign cat_queries = 'kurta,coord+set,dress,top,palazzo,festive' | split: ',' %}
+
+        {% assign col_index = 0 %}
+        {% for collection in collections limit: 8 %}
+          {% unless collection.handle == 'frontpage' or collection.handle == 'all' %}
+          <a href="{{ collection.url }}" class="search-cat-card">
+            {% if collection.image %}
+            <img
+              src="{{ collection.image | image_url: width: 400 }}"
+              alt="{{ collection.title | escape }}"
+              style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"
+              loading="lazy"
+              width="400"
+              height="533"
+            >
+            {% else %}
+            <div class="search-cat-card__placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="width:40px;height:40px;opacity:0.15"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9l4-4 4 4 4-4 4 4"/></svg>
+            </div>
+            {% endif %}
+            <div class="search-cat-card__overlay"></div>
+            <span class="search-cat-card__name">{{ collection.title }}</span>
+          </a>
+          {% endunless %}
+        {% endfor %}
+
+        {% comment %} Fallback if fewer than 4 collections: show static category tiles {% endcomment %}
+        {% assign col_count = 0 %}
+        {% for c in collections %}{% unless c.handle == 'frontpage' or c.handle == 'all' %}{% assign col_count = col_count | plus: 1 %}{% endunless %}{% endfor %}
+        {% if col_count == 0 %}
+          {% for label in cat_labels %}
+          {% assign qidx = forloop.index0 %}
+          <a href="{{ routes.search_url }}?q={{ cat_queries[qidx] }}&type=product" class="search-cat-card">
+            <div class="search-cat-card__placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="width:40px;height:40px;opacity:0.15"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+            </div>
+            <div class="search-cat-card__overlay"></div>
+            <span class="search-cat-card__name">{{ label }}</span>
+          </a>
+          {% endfor %}
+        {% endif %}
+
+      </div>
+    </div>
+    {% endif %}
+
+    {% comment %} === FEATURED products when no search === {% endcomment %}
+    {% unless search.performed %}
+    <div style="padding:0 0 2.5rem">
+      <div class="search-categories-title" style="margin-bottom:1rem">New Arrivals</div>
+      {% assign featured = collections['new-arrivals'] %}
+      {% if featured == blank %}{% assign featured = collections['all'] %}{% endif %}
+      <div class="grid grid--4" style="gap:12px">
+        {% for p in featured.products limit: 8 %}
+        <div>{% render 'product-card', product: p %}</div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endunless %}
+
+  </div>
+</div>
