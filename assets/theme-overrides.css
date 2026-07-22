@@ -2095,19 +2095,19 @@ section + section{margin-top:0!important}
 /* Active state — brand accent + indicator dot below icon */
 .bottom-nav__item.active,
 .bottom-nav__item[aria-current="page"]{
-  color:var(--color-accent, #ff6a00)!important;
+  color:var(--color-accent, #3ccbe0)!important;
   font-weight:600;
 }
 .bottom-nav__item.active svg,
 .bottom-nav__item[aria-current="page"] svg{
-  stroke:var(--color-accent, #ff6a00)!important;
+  stroke:var(--color-accent, #3ccbe0)!important;
   fill:rgba(255,106,0,0.12);
 }
 .bottom-nav__item.active .bottom-nav__label,
 .bottom-nav__item[aria-current="page"] .bottom-nav__label,
 .bottom-nav__item.active > span:not(.bottom-nav__label),
 .bottom-nav__item[aria-current="page"] > span:not(.bottom-nav__label){
-  color:var(--color-accent, #ff6a00)!important;
+  color:var(--color-accent, #3ccbe0)!important;
 }
 
 /* Top accent rail — short rounded pill, animated in */
@@ -2118,7 +2118,7 @@ section + section{margin-top:0!important}
   top:0; left:50%;
   transform:translateX(-50%);
   width:28px; height:3px;
-  background:var(--color-accent, #ff6a00)!important;
+  background:var(--color-accent, #3ccbe0)!important;
   border-radius:0 0 4px 4px;
   animation:sk-bn-pop .22s ease-out;
 }
@@ -2133,7 +2133,7 @@ section + section{margin-top:0!important}
   transform:translateX(-50%);
   width:4px; height:4px;
   border-radius:50%;
-  background:var(--color-accent, #ff6a00);
+  background:var(--color-accent, #3ccbe0);
 }
 
 /* Dark mode keeps accent visible against dark surface */
@@ -2521,7 +2521,7 @@ section + section{margin-top:0!important}
   border:0!important;
   transition:background .15s!important;
 }
-.wishlist-drawer__empty .btn:hover{ background:#ff6a00!important; }
+.wishlist-drawer__empty .btn:hover{ background:#3ccbe0!important; }
 
 
 /* ================================================================

@@ -2854,7 +2854,7 @@ body[class*="page.contact"] .page-header,
   border-radius:999px;
 }
 .comments-head__cta{
-  font-size:13px; font-weight:600; color:#ff6a00; text-decoration:none;
+  font-size:13px; font-weight:600; color:#3ccbe0; text-decoration:none;
 }
 .comments-head__cta:hover{ text-decoration:underline; }
 .comments-list{ list-style:none; padding:0; margin:0 0 32px; display:flex; flex-direction:column; gap:14px; }
@@ -2870,7 +2870,7 @@ body[class*="page.contact"] .page-header,
   flex-shrink:0;
   width:40px; height:40px;
   border-radius:50%;
-  background:linear-gradient(135deg, #ff6a00, #ff8c42);
+  background:linear-gradient(135deg, #3ccbe0, #7de5f0);
   color:#fff;
   display:flex; align-items:center; justify-content:center;
   font-weight:700; font-size:16px;
@@ -2979,7 +2979,7 @@ body[class*="page.contact"] .page-header,
 .page-404 .btn:hover,
 .cart-drawer__empty .btn:hover,
 .wishlist-drawer__empty .btn:hover{
-  background:#ff6a00!important;
+  background:#3ccbe0!important;
   transform:translateY(-2px);
 }
 
@@ -3046,7 +3046,7 @@ body[class*="page.contact"] .page-header,
   margin:18px 0;
 }
 .template-article .page-content blockquote{
-  border-left:3px solid #ff6a00;
+  border-left:3px solid #3ccbe0;
   padding:6px 0 6px 18px;
   margin:24px 0;
   color:#4a4a4a;
@@ -3055,7 +3055,7 @@ body[class*="page.contact"] .page-header,
   line-height:1.55;
 }
 .template-article .page-content a{
-  color:#ff6a00;
+  color:#3ccbe0;
   text-decoration:underline;
 }
 .template-article .page-content code{
@@ -3081,7 +3081,7 @@ body[class*="page.contact"] .page-header,
 .template-blog .blog-card__body{ padding:18px 18px 20px; }
 .template-blog .blog-card__meta{
   font-size:11px; font-weight:700; letter-spacing:.1em;
-  text-transform:uppercase; color:#ff6a00;
+  text-transform:uppercase; color:#3ccbe0;
   margin-bottom:8px;
 }
 .template-blog .blog-card__title{
@@ -3232,7 +3232,7 @@ body[class*="page.contact"] .page-header,
 .template-customers-register form .btn:hover,
 .template-customers-reset_password form .btn:hover,
 .template-customers-activate_account form .btn:hover{
-  background:#ff6a00!important;
+  background:#3ccbe0!important;
   transform:translateY(-1px);
 }
 
@@ -3241,7 +3241,7 @@ body[class*="page.contact"] .page-header,
 .template-customers-register form a,
 .template-customers-login a[href*="recover"],
 .template-customers-register a[href*="login"]{
-  color:#ff6a00!important;
+  color:#3ccbe0!important;
   font-size:13px!important;
   font-weight:600!important;
   text-decoration:none!important;
@@ -3294,7 +3294,7 @@ body[class*="page.contact"] .page-header,
 .acct-hero__avatar{
   width:64px; height:64px;
   border-radius:50%;
-  background:linear-gradient(135deg, #ff6a00, #ff8c42);
+  background:linear-gradient(135deg, #3ccbe0, #7de5f0);
   color:#fff;
   font-size:24px; font-weight:800;
   display:inline-flex; align-items:center; justify-content:center;
@@ -3357,7 +3357,7 @@ body[class*="page.contact"] .page-header,
 .acct-actions__tile svg{
   width:22px; height:22px;
   flex-shrink:0;
-  color:#ff6a00;
+  color:#3ccbe0;
 }
 .acct-actions__count{
   margin-left:auto;
@@ -3476,7 +3476,7 @@ body[class*="page.contact"] .page-header,
 .template-page .page-content p{ margin:0 0 16px; }
 .template-page .page-content ul,
 .template-page .page-content ol{ margin:8px 0 16px; padding-left:20px; }
-.template-page .page-content a{ color:#ff6a00; text-decoration:underline; }
+.template-page .page-content a{ color:#3ccbe0; text-decoration:underline; }
 
 /* Contact form layout */
 .template-page-contact .contact-form{

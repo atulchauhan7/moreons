@@ -1788,7 +1788,7 @@ button[data-add-to-cart],input[data-add-to-cart]{
   display:inline-flex; align-items:center; justify-content:center;
   width:24px; height:24px;
   border-radius:6px;
-  background:#ff6a00; color:#fff;
+  background:#3ccbe0; color:#fff;
 }
 .available-offers__title{
   margin:0; font-size:14px; font-weight:700; letter-spacing:.01em;
@@ -1803,7 +1803,7 @@ button[data-add-to-cart],input[data-add-to-cart]{
   border-radius:8px;
   transition:border-color .18s ease, transform .18s ease;
 }
-.available-offer:hover{ border-color:#ff6a00; }
+.available-offer:hover{ border-color:#3ccbe0; }
 .available-offer__body{ min-width:0; flex:1; }
 .available-offer__title{
   font-size:13px; font-weight:600; color:#1a1a1a;
@@ -1817,17 +1817,17 @@ button[data-add-to-cart],input[data-add-to-cart]{
   display:inline-flex; align-items:center; gap:8px;
   padding:7px 12px;
   background:transparent;
-  border:1px dashed #ff6a00;
+  border:1px dashed #3ccbe0;
   border-radius:6px;
   cursor:pointer;
   font-family:'SF Mono', Menlo, monospace;
   font-size:12px; font-weight:700;
-  color:#ff6a00;
+  color:#3ccbe0;
   letter-spacing:.04em;
   transition:background .18s ease, color .18s ease;
   flex-shrink:0;
 }
-.available-offer__code:hover{ background:#ff6a00; color:#fff; }
+.available-offer__code:hover{ background:#3ccbe0; color:#fff; }
 .available-offer__code.is-copied{ background:#16a34a; color:#fff; border-color:#16a34a; }
 .available-offer__code.is-copied .available-offer__code-text::before{
   content:'✓ '; margin-right:2px;
@@ -2404,7 +2404,7 @@ button[data-add-to-cart],input[data-add-to-cart]{
 }
 .product-accordion .accordion-content__inner li{ margin-bottom:4px; }
 .product-accordion .accordion-content__inner strong{ color:#1a1a1a; font-weight:600; }
-.product-accordion .accordion-content__inner a{ color:#ff6a00; text-decoration:underline; }
+.product-accordion .accordion-content__inner a{ color:#3ccbe0; text-decoration:underline; }
 
 /* Mobile: tighter padding, drop the icon to align with title */
 @media (max-width: 600px){
@@ -2583,7 +2583,7 @@ button[data-add-to-cart],input[data-add-to-cart]{
 .pdp-review__avatar{
   width:36px; height:36px;
   border-radius:50%;
-  background:linear-gradient(135deg, #ff6a00, #ff8c42);
+  background:linear-gradient(135deg, #3ccbe0, #7de5f0);
   color:#fff;
   font-weight:700; font-size:14px;
   display:inline-flex; align-items:center; justify-content:center;
@@ -2692,7 +2692,7 @@ button[data-add-to-cart],input[data-add-to-cart]{
   position:absolute;
   bottom:0;
   width:36px; height:3px;
-  background:#ff6a00;
+  background:#3ccbe0;
   border-radius:2px;
 }
 /* PDP "recently viewed" header is left-aligned — accent stays flush-left */
@@ -2705,7 +2705,7 @@ button[data-add-to-cart],input[data-add-to-cart]{
   background:transparent;
   border:0; padding:6px 10px;
   font-size:12px; font-weight:600;
-  color:#ff6a00; cursor:pointer;
+  color:#3ccbe0; cursor:pointer;
   letter-spacing:.04em;
   text-transform:uppercase;
 }

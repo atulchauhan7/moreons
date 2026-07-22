@@ -9,8 +9,8 @@
  */
 {
   "current": {
-    "accent_color": "#F4a610",
-    "accent_color_dark": "#DA8B00",
+    "accent_color": "#3ccbe0",
+    "accent_color_dark": "#249fb0",
     "text_color": "#1a1a1a",
     "text_muted_color": "#888888",
     "heading_color": "#1a1a1a",
@@ -257,8 +257,8 @@
   },
   "presets": {
     "BlueMnky": {
-      "accent_color": "#b22066",
-      "accent_color_dark": "#b22066",
+      "accent_color": "#3ccbe0",
+      "accent_color_dark": "#3ccbe0",
       "text_color": "#1a1a1a",
       "text_muted_color": "#888888",
       "heading_color": "#1a1a1a",
