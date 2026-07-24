@@ -67,8 +67,20 @@
       },
       "header": {
         "type": "header",
+        "blocks": {
+          "mobile_category_rWLEdA": {
+            "type": "mobile_category",
+            "settings": {
+              "label": "Men",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "mobile_category_rWLEdA"
+        ],
         "settings": {
-          "logo": "shopify://shop_images/IMG_0688_JPG.jpg",
+          "logo": "shopify://shop_images/IMG_1457.png",
           "menu": "",
           "show_announcement": true,
           "show_engage_section": true,
