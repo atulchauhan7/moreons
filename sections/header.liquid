@@ -61,7 +61,7 @@
       {% endfor %}
     {% else %}
       {% comment %} Fallback hardcoded desktop nav {% endcomment %}
-      {% assign _fallback_nav = 'Home,/|Summer Sale,/collections/best-seller|New Arrival,/collections/new-arrival|Best Seller,/collections/best-seller|Suit Sets,/collections/suit-sets|Kurta Sets,/collections/kurta-sets|Co-ord Sets,/collections/co-ord-sets|KARIGARI,/collections/embroidery|Our Story,/pages/our-story|Return and Exchange Policy,/pages/return-and-exchange-policy' | split: '|' %}
+      {% assign _fallback_nav = 'Home,|Graphic tees,/collections/Lowers|Kurta Sets,/collections/Shirts|Co-ord Sets,/collections/|KARIGARI,/collections/embroidery|Our Story,/pages/our-story|Return and Exchange Policy,/pages/return-and-exchange-policy' | split: '|' %}
       {% for _item in _fallback_nav %}
         {% assign _parts = _item | split: ',' %}
         {% assign _title = _parts[0] %}
