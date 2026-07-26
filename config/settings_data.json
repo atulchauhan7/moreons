@@ -9,8 +9,8 @@
  */
 {
   "current": {
-    "accent_color": "#000000",
-    "accent_color_dark": "#000000",
+    "accent_color": "#3ccbe0",
+    "accent_color_dark": "#249fb0",
     "text_color": "#1a1a1a",
     "text_muted_color": "#888888",
     "heading_color": "#1a1a1a",
@@ -21,15 +21,15 @@
     "body_font": "poppins_n4",
     "container_width": "1440px",
     "grid_gutter": "20px",
-    "section_spacing": 60,
-    "border_radius": 0,
+    "section_spacing": 40,
+    "border_radius": 4,
     "text_direction": "ltr",
     "goEnable": true,
     "enable_animations": true,
-    "enable_custom_cursor": false,
+    "enable_custom_cursor": true,
     "enable_newsletter_popup": false,
-    "social_instagram": "",
-    "whatsapp_number": "+919166881552",
+    "social_instagram": "https://www.instagram.com/labeldhirai/",
+    "whatsapp_number": "+918690276328",
     "product_promo_enabled": false,
     "product_promo_text": "Buy 2 Get 30% Off",
     "product_promo_code": "SUMMER30",
@@ -60,7 +60,7 @@
         "type": "announcement-bar",
         "settings": {
           "show_announcement": true,
-          "text": "<b>Flat 10% Off on prepaid orders</b>",
+          "text": "Flat 10% Off On Everything",
           "link": "",
           "timer_end": ""
         }
@@ -71,48 +71,32 @@
           "mobile_category_rWLEdA": {
             "type": "mobile_category",
             "settings": {
-              "label": "Best Seller",
-              "link": "shopify://collections/best-seller"
-            }
-          },
-          "mobile_category_new_arrival": {
-            "type": "mobile_category",
-            "settings": {
-              "label": "New Arrival",
-              "link": "shopify://collections/new-arrival"
-            }
-          },
-          "mobile_category_coord": {
-            "type": "mobile_category",
-            "settings": {
-              "label": "Co-ord Set",
-              "link": "shopify://collections/co-ord-set"
+              "label": "Men",
+              "link": ""
             }
           }
         },
         "block_order": [
-          "mobile_category_rWLEdA",
-          "mobile_category_new_arrival",
-          "mobile_category_coord"
+          "mobile_category_rWLEdA"
         ],
         "settings": {
-          "logo": "shopify://shop_images/transparent_bg.png",
-          "menu": "main-menu",
+          "logo": "shopify://shop_images/Moreons_Logo.png",
+          "menu": "",
           "show_announcement": true,
           "show_engage_section": true,
           "find_store_url": "",
           "track_order_url": "",
           "show_utility_bar": true,
           "utility_link_1_label": "Offers",
-          "utility_link_1_url": "shopify://collections/all",
-          "utility_link_2_label": "New Arrival",
-          "utility_link_2_url": "shopify://collections/new-arrival",
+          "utility_link_1_url": "",
+          "utility_link_2_label": "New Arrivals",
+          "utility_link_2_url": "",
           "utility_link_3_label": "Best Sellers",
-          "utility_link_3_url": "shopify://collections/best-seller",
+          "utility_link_3_url": "",
           "utility_link_4_label": "Track Order",
           "utility_link_4_url": "",
           "utility_link_5_label": "Contact Us",
-          "utility_link_5_url": "shopify://pages/contact-us"
+          "utility_link_5_url": ""
         }
       },
       "cart-drawer": {
@@ -212,8 +196,8 @@
         "settings": {
           "about_text": "",
           "address_text": "G1-30, Apparel Park, Jagatpura, Jaipur, Rajasthan, 302017",
-          "whatsapp_number": "",
-          "support_email": "Care@vedora.in",
+          "whatsapp_number": "+918690276328",
+          "support_email": "dhiraiapparelsprivatelimited@gmail.com",
           "quick_links_heading": "Quick Links"
         }
       },
@@ -224,40 +208,40 @@
             "type": "category",
             "disabled": true,
             "settings": {
-              "label": "Best Seller",
-              "link": "shopify://collections/best-seller"
+              "label": "Best sellers",
+              "link": "shopify://collections/sabki-pasand"
             }
           },
           "category_z63TCm": {
             "type": "category",
             "disabled": true,
             "settings": {
-              "label": "New Arrival",
-              "link": "shopify://collections/new-arrival"
+              "label": "The Grace",
+              "link": "shopify://collections/the-grace"
             }
           },
           "category_NFpbcV": {
             "type": "category",
             "disabled": true,
             "settings": {
-              "label": "Co-ord Set",
-              "link": "shopify://collections/co-ord-set"
+              "label": "The Muse",
+              "link": "shopify://collections/the-muse"
             }
           },
           "category_A8zzmY": {
             "type": "category",
             "disabled": true,
             "settings": {
-              "label": "Dresses",
-              "link": "shopify://collections/dresses"
+              "label": "The Soul",
+              "link": "shopify://products/ethic-kurti"
             }
           },
           "category_CNrpzp": {
             "type": "category",
             "disabled": true,
             "settings": {
-              "label": "Return & Exchange",
-              "link": "/apps/yanet-return"
+              "label": "The aura",
+              "link": "shopify://collections/the-aura"
             }
           }
         },
