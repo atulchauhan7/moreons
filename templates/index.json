@@ -9,83 +9,22 @@
  */
 {
   "sections": {
-    "category-strip": {
-      "type": "category-strip",
-      "blocks": {
-        "cat2": {
-          "type": "category",
-          "settings": {
-            "label": "Best Sellers",
-            "link": "shopify://collections/best-seller",
-            "badge_label": "Best",
-            "badge_color": "red"
-          }
-        },
-        "cat1": {
-          "type": "category",
-          "settings": {
-            "label": "New Arrivals",
-            "link": "shopify://collections/new-arrival",
-            "badge_label": "New",
-            "badge_color": "green"
-          }
-        },
-        "cat6": {
-          "type": "category",
-          "settings": {
-            "label": "Summer Sale",
-            "link": "shopify://collections/best-seller",
-            "badge_label": "Sale",
-            "badge_color": "accent"
-          }
-        },
-        "cat3": {
-          "type": "category",
-          "settings": {
-            "label": "Kurta Sets",
-            "link": "shopify://collections/kurta-sets",
-            "badge_label": "Best",
-            "badge_color": "green"
-          }
-        },
-        "cat4": {
-          "type": "category",
-          "settings": {
-            "label": "Coord Sets",
-            "link": "shopify://collections/co-ord-sets",
-            "badge_label": "",
-            "badge_color": "green"
-          }
-        },
-        "cat5": {
-          "type": "category",
-          "settings": {
-            "label": "Suit Sets",
-            "link": "shopify://collections/suit-sets",
-            "badge_label": "",
-            "badge_color": "green"
-          }
-        }
-      },
-      "block_order": [
-        "cat2",
-        "cat1",
-        "cat6",
-        "cat3",
-        "cat4",
-        "cat5"
-      ],
-      "settings": {
-        "show_section": true
-      }
-    },
     "hero": {
       "type": "hero-banner",
       "blocks": {
-        "slide_U8gDMy": {
+        "slide_hero_1": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/IMG_1452_JPG.jpg",
+            "image": "shopify://shop_images/IMG_0566_1800x1800_94ebdf17-13e0-4a54-a331-efbe74e7caae.webp",
+            "video": "",
+            "subtitle": "",
+            "heading": ""
+          }
+        },
+        "slide_hero_2": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/56_1800x1800_3b5789e2-a6bd-42ec-9032-58d25c73371f.webp",
             "video": "",
             "subtitle": "",
             "heading": ""
@@ -93,259 +32,19 @@
         }
       },
       "block_order": [
-        "slide_U8gDMy"
+        "slide_hero_1",
+        "slide_hero_2"
       ],
       "settings": {
         "subtitle": "",
         "heading": "",
         "description": "",
         "button_label": "Shop Now",
-        "button_link": "shopify://collections/best-seller",
+        "button_link": "shopify://collections/frontpage",
         "button_label_2": "",
         "button_link_2": "",
         "slideshow_speed": 6,
         "show_scroll_indicator": false
-      }
-    },
-    "hero_banner_nYYJ4f": {
-      "type": "hero-banner",
-      "blocks": {
-        "slide_4fyCz4": {
-          "type": "slide",
-          "settings": {
-            "video": "",
-            "subtitle": "",
-            "heading": ""
-          }
-        },
-        "slide_fcn7LP": {
-          "type": "slide",
-          "settings": {
-            "video": "",
-            "subtitle": "",
-            "heading": ""
-          }
-        },
-        "slide_Y4p44x": {
-          "type": "slide",
-          "settings": {
-            "video": "",
-            "subtitle": "",
-            "heading": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_4fyCz4",
-        "slide_fcn7LP",
-        "slide_Y4p44x"
-      ],
-      "disabled": true,
-      "settings": {
-        "subtitle": "",
-        "heading": "",
-        "description": "Discover our curated collection of premium essentials designed for the modern lifestyle.",
-        "button_label": "Shop Collection",
-        "button_link": "",
-        "button_label_2": "",
-        "button_link_2": "",
-        "slideshow_speed": 6,
-        "show_scroll_indicator": false
-      }
-    },
-    "social-proof": {
-      "type": "social-proof",
-      "blocks": {
-        "sp1": {
-          "type": "stat",
-          "settings": {
-            "icon": "bag",
-            "number": "5 Lakh+",
-            "prefix": "",
-            "suffix": "+",
-            "count_to": 500000,
-            "label": "Orders Delivered"
-          }
-        },
-        "sp2": {
-          "type": "stat",
-          "settings": {
-            "icon": "users",
-            "number": "2 Lakh+",
-            "prefix": "",
-            "suffix": "+",
-            "count_to": 200000,
-            "label": "Happy Customers"
-          }
-        },
-        "sp3": {
-          "type": "stat",
-          "settings": {
-            "icon": "star",
-            "number": "4.7",
-            "prefix": "",
-            "suffix": "+",
-            "label": "Average Rating"
-          }
-        },
-        "sp4": {
-          "type": "stat",
-          "settings": {
-            "icon": "map",
-            "number": "27000",
-            "prefix": "",
-            "suffix": "+",
-            "count_to": 27000,
-            "label": "Pincodes Served"
-          }
-        }
-      },
-      "block_order": [
-        "sp1",
-        "sp2",
-        "sp3",
-        "sp4"
-      ],
-      "settings": {
-        "show_section": true,
-        "heading": "",
-        "background": "surface"
-      }
-    },
-    "featured": {
-      "type": "featured-collection",
-      "settings": {
-        "subtitle": "Curated For You",
-        "title": "Newest Drops",
-        "title_suffix": "Of The Season",
-        "description": "Handpicked ethnic wear that embodies elegance and timeless Indian craftsmanship",
-        "collection": "best-seller",
-        "products_to_show": 12,
-        "columns": "4",
-        "autoplay": true,
-        "show_view_all": true
-      }
-    },
-    "image-grid": {
-      "type": "image-grid",
-      "blocks": {
-        "ig1": {
-          "type": "item",
-          "settings": {
-            "label": "Best Seller",
-            "link": "shopify://collections/best-seller"
-          }
-        },
-        "ig2": {
-          "type": "item",
-          "settings": {
-            "label": "Accessories",
-            "link": "shopify://collections/accessories"
-          }
-        },
-        "ig3": {
-          "type": "item",
-          "settings": {
-            "label": "New Arrival",
-            "link": "shopify://collections/new-arrival"
-          }
-        },
-        "ig4": {
-          "type": "item",
-          "settings": {
-            "label": "Co-ord Sets",
-            "link": "shopify://collections/co-ord-sets"
-          }
-        },
-        "ig5": {
-          "type": "item",
-          "settings": {
-            "label": "Kurta Sets",
-            "link": "shopify://collections/kurta-sets"
-          }
-        },
-        "ig6": {
-          "type": "item",
-          "settings": {
-            "label": "Explore All",
-            "link": "shopify://collections"
-          }
-        }
-      },
-      "block_order": [
-        "ig1",
-        "ig2",
-        "ig3",
-        "ig4",
-        "ig5",
-        "ig6"
-      ],
-      "settings": {
-        "show_section": true,
-        "title_bold": "Shop By Style",
-        "title_normal": "",
-        "subtitle_highlight": "Bestsellers",
-        "subtitle": "in one place",
-        "density": "comfortable",
-        "last_as_explore": true
-      }
-    },
-    "trending-categories": {
-      "type": "trending-categories",
-      "blocks": {
-        "tc1": {
-          "type": "category",
-          "settings": {
-            "label": "KARIGARI",
-            "link": "shopify://collections/embroidery"
-          }
-        },
-        "tc2": {
-          "type": "category",
-          "settings": {
-            "label": "Coord Sets",
-            "link": "shopify://collections/co-ord-sets"
-          }
-        },
-        "tc3": {
-          "type": "category",
-          "settings": {
-            "label": "BOTTOM WEAR",
-            "link": "shopify://collections/bottom-wear"
-          }
-        },
-        "tc4": {
-          "type": "category",
-          "settings": {
-            "label": "ACCESSORIES",
-            "link": "shopify://collections/accessories"
-          }
-        }
-      },
-      "block_order": [
-        "tc1",
-        "tc2",
-        "tc3",
-        "tc4"
-      ],
-      "settings": {
-        "show_section": true,
-        "title_bold": "Trending",
-        "title_normal": "Categories",
-        "title_emoji": "🥊",
-        "show_view_all": false,
-        "view_all_link": ""
-      }
-    },
-    "promo-banner": {
-      "type": "promo-banner",
-      "settings": {
-        "show_section": true,
-        "bg_color": "#1a1a1a",
-        "eyebrow": "Limited Period Offer",
-        "offer_text": "GET 30% Off",
-        "subtext": "Buy Minimum 2 Products",
-        "coupon_code": "SUMMER30"
       }
     },
     "tabbed": {
@@ -354,22 +53,22 @@
         "tab1": {
           "type": "tab",
           "settings": {
-            "tab_label": "Best Seller",
-            "collection": "best-seller"
+            "tab_label": "New Arrival",
+            "collection": "new-arrival"
           }
         },
         "tab2": {
           "type": "tab",
           "settings": {
-            "tab_label": "Salwar",
-            "collection": "farshi-salwar-set"
+            "tab_label": "Best sellers",
+            "collection": "best-seller"
           }
         },
         "tab3": {
           "type": "tab",
           "settings": {
-            "tab_label": "Coord",
-            "collection": "co-ord-sets"
+            "tab_label": "Coord Set",
+            "collection": "co-ord-set"
           }
         }
       },
@@ -379,65 +78,11 @@
         "tab3"
       ],
       "settings": {
-        "subtitle": "Shop By",
-        "title": "Our Collections",
+        "subtitle": "",
+        "title": "",
         "columns": "4",
         "products_to_show": 8,
         "show_view_all": true
-      }
-    },
-    "savings-corner": {
-      "type": "savings-corner",
-      "blocks": {
-        "sc1": {
-          "type": "deal",
-          "settings": {
-            "eyebrow": "BUY 2",
-            "heading": "OVERSIZED KURTIS",
-            "price_text": "₹1199",
-            "link": ""
-          }
-        },
-        "sc2": {
-          "type": "deal",
-          "settings": {
-            "eyebrow": "BUY 3",
-            "heading": "COORD SETS",
-            "price_text": "₹1499",
-            "link": ""
-          }
-        },
-        "sc3": {
-          "type": "deal",
-          "settings": {
-            "eyebrow": "TOPS",
-            "heading": "UNDER ₹599",
-            "price_text": "",
-            "link": ""
-          }
-        },
-        "sc4": {
-          "type": "deal",
-          "settings": {
-            "eyebrow": "KURTIS",
-            "heading": "UNDER ₹899",
-            "price_text": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "sc1",
-        "sc2",
-        "sc3",
-        "sc4"
-      ],
-      "disabled": true,
-      "settings": {
-        "show_section": true,
-        "title_bold": "Savings",
-        "title_normal": "Corner",
-        "title_emoji": "⬇️"
       }
     },
     "banners": {
@@ -446,17 +91,19 @@
         "b1": {
           "type": "banner",
           "settings": {
-            "heading": "Daily wear",
+            "image": "shopify://shop_images/imgi_9_Untitled-1_0000_DSC06015-scaled_900x_4efad4f8-c2a8-450a-b3d5-cc0a2c8a8fbb.webp",
+            "heading": "Desi Daftar Fits",
             "button_label": "Shop Now",
-            "link": ""
+            "link": "shopify://collections/desi-daftar-fits"
           }
         },
         "b2": {
           "type": "banner",
           "settings": {
-            "heading": "Straight Kurtis",
+            "image": "shopify://shop_images/imgi_12_Untitled-1_0005_DSC07037-scaled_900x_c0120c5f-340e-4c81-8804-97488259a980.webp",
+            "heading": "New Arrival",
             "button_label": "Shop Now",
-            "link": ""
+            "link": "shopify://collections/new-arrival"
           }
         }
       },
@@ -464,8 +111,21 @@
         "b1",
         "b2"
       ],
-      "disabled": true,
       "settings": {}
+    },
+    "featured": {
+      "type": "featured-collection",
+      "settings": {
+        "subtitle": "Curated For You",
+        "title": "Featured Kurtis",
+        "title_suffix": "",
+        "description": "Handpicked ethnic wear that embodies elegance and timeless Indian craftsmanship",
+        "collection": "best-seller",
+        "products_to_show": 8,
+        "columns": "4",
+        "autoplay": true,
+        "show_view_all": true
+      }
     },
     "scrolling": {
       "type": "scrolling-text",
@@ -506,7 +166,8 @@
     "image-text": {
       "type": "image-with-text",
       "settings": {
-        "image_fit": "contain",
+        "image": "shopify://shop_images/transparent_bg.png",
+        "image_fit": "cover",
         "subtitle": "Our Story",
         "heading": "Crafted with Love",
         "text": "<p>Every kurti in our collection is thoughtfully designed, blending traditional Indian craftsmanship with contemporary style. From handpicked fabrics to intricate detailing, we create ethnic wear that celebrates the grace of every woman.</p>",
@@ -525,7 +186,7 @@
             "title": "Returns and Refund Policy",
             "text": "Hassle-free returns within 10 days",
             "link_label": "Learn More",
-            "link_url": "shopify://pages/return-exchanges-and-refunds"
+            "link_url": "shopify://pages/return-exchange-policy"
           }
         },
         "usp2": {
@@ -545,7 +206,7 @@
             "title": "Customer Support",
             "text": "Dedicated support for all your queries",
             "link_label": "Learn More",
-            "link_url": "shopify://pages/contact"
+            "link_url": "shopify://pages/contact-us"
           }
         }
       },
@@ -555,22 +216,26 @@
         "usp3"
       ],
       "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "subtitle": "Stay Connected",
+        "title": "Join Our Community",
+        "description": "Subscribe for exclusive access to new arrivals, special offers, and style inspiration.",
+        "placeholder": "Enter your email address",
+        "button_label": "Subscribe"
+      }
     }
   },
   "order": [
-    "category-strip",
     "hero",
-    "hero_banner_nYYJ4f",
-    "social-proof",
-    "featured",
-    "image-grid",
-    "trending-categories",
-    "promo-banner",
     "tabbed",
-    "savings-corner",
     "banners",
+    "featured",
     "scrolling",
     "image-text",
-    "usp"
+    "usp",
+    "newsletter"
   ]
 }
