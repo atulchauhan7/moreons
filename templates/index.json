@@ -160,23 +160,23 @@
         "sp1": {
           "type": "stat",
           "settings": {
-            "icon": "bag",
-            "number": "5 Lakh+",
+            "icon": "shield",
+            "number": "Embroidered in-house",
             "prefix": "",
-            "suffix": "+",
-            "count_to": 500000,
-            "label": "Orders Delivered"
+            "suffix": "",
+            "count_to": 0,
+            "label": "our own unit, not job-worked"
           }
         },
         "sp2": {
           "type": "stat",
           "settings": {
             "icon": "users",
-            "number": "2 Lakh+",
+            "number": "240 GSM cotton terry",
             "prefix": "",
-            "suffix": "+",
-            "count_to": 200000,
-            "label": "Happy Customers"
+            "suffix": "",
+            "count_to": 0,
+            "label": "bio-washed,                pre-shrunk"
           }
         },
         "sp3": {
