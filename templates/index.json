@@ -147,7 +147,7 @@
         "sp1": {
           "type": "stat",
           "settings": {
-            "icon": "bag",
+            "icon": "star",
             "number": "Embroidered in-house",
             "prefix": "",
             "suffix": "",
@@ -158,7 +158,7 @@
         "sp2": {
           "type": "stat",
           "settings": {
-            "icon": "users",
+            "icon": "shield",
             "number": "Bio-washed and pre-shrunk",
             "prefix": "",
             "suffix": "",
@@ -169,7 +169,7 @@
         "sp3": {
           "type": "stat",
           "settings": {
-            "icon": "star",
+            "icon": "truck",
             "number": "Dispatched in 24–48 hrs",
             "prefix": "",
             "suffix": "",
@@ -179,7 +179,7 @@
         "sp4": {
           "type": "stat",
           "settings": {
-            "icon": "map",
+            "icon": "users",
             "number": "Founder on WhatsApp",
             "prefix": "",
             "suffix": "",
