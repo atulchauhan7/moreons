@@ -148,11 +148,11 @@
           "type": "stat",
           "settings": {
             "icon": "bag",
-            "number": "5 Lakh+",
+            "number": "Embroidered in-house",
             "prefix": "",
-            "suffix": "+",
-            "count_to": 500000,
-            "label": "Orders Delivered"
+            "suffix": "",
+            "count_to": 0,
+            "label": "our own unit, not job-worked"
           }
         },
         "sp2": {
