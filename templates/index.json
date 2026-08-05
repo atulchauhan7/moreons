@@ -170,10 +170,10 @@
           "type": "stat",
           "settings": {
             "icon": "star",
-            "number": "4.7",
+            "number": "Dispatched in 24–48 hrs",
             "prefix": "",
-            "suffix": "+",
-            "label": "Average Rating"
+            "suffix": "",
+            "label": "from Jaipur"
           }
         },
         "sp4": {
