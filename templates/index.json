@@ -75,6 +75,7 @@
         "cat4",
         "cat5"
       ],
+      "disabled": true,
       "settings": {
         "show_section": true
       }
