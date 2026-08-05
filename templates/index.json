@@ -82,30 +82,17 @@
     },
     "hero": {
       "type": "hero-banner",
-      "blocks": {
-        "slide_U8gDMy": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_Aug_5_2026_06_56_09_PM.png",
-            "video": "",
-            "subtitle": "Embroidered oversized tees on 240 GSM cotton terry. Made in our own unit, not bought off a rack.",
-            "heading": "STITCHED IN JAIPUR"
-          }
-        }
-      },
-      "block_order": [
-        "slide_U8gDMy"
-      ],
       "settings": {
+        "image": "shopify://shop_images/001.png",
         "subtitle": "",
         "heading": "",
         "description": "",
         "button_label": "Shop Now",
-        "button_link": "shopify://collections/best-seller",
+        "button_link": "shopify://collections/embroidered-tees",
         "button_label_2": "",
         "button_link_2": "",
-        "slideshow_speed": 6,
-        "show_scroll_indicator": false
+        "slideshow_speed": 4,
+        "show_scroll_indicator": true
       }
     },
     "hero_banner_nYYJ4f": {
@@ -160,44 +147,44 @@
         "sp1": {
           "type": "stat",
           "settings": {
-            "icon": "shield",
-            "number": "Embroidered in-house",
+            "icon": "bag",
+            "number": "5 Lakh+",
             "prefix": "",
-            "suffix": "",
-            "count_to": 0,
-            "label": "our own unit, not job-worked"
+            "suffix": "+",
+            "count_to": 500000,
+            "label": "Orders Delivered"
           }
         },
         "sp2": {
           "type": "stat",
           "settings": {
             "icon": "users",
-            "number": "240 GSM cotton terry",
+            "number": "2 Lakh+",
             "prefix": "",
-            "suffix": "",
-            "count_to": 0,
-            "label": "bio-washed,                pre-shrunk"
+            "suffix": "+",
+            "count_to": 200000,
+            "label": "Happy Customers"
           }
         },
         "sp3": {
           "type": "stat",
           "settings": {
             "icon": "star",
-            "number": "Dispatched in 24–48 hrs",
+            "number": "4.7",
             "prefix": "",
-            "suffix": "",
-            "label": "from Jaipur"
+            "suffix": "+",
+            "label": "Average Rating"
           }
         },
         "sp4": {
           "type": "stat",
           "settings": {
             "icon": "map",
-            "number": "Founder on WhatsApp",
+            "number": "27000",
             "prefix": "",
-            "suffix": "",
-            "count_to": 0,
-            "label": "you'll get a reply"
+            "suffix": "+",
+            "count_to": 27000,
+            "label": "Pincodes Served"
           }
         }
       },
