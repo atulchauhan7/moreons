@@ -159,11 +159,11 @@
           "type": "stat",
           "settings": {
             "icon": "users",
-            "number": "2 Lakh+",
+            "number": "240 GSM cotton terry",
             "prefix": "",
-            "suffix": "+",
-            "count_to": 200000,
-            "label": "Happy Customers"
+            "suffix": "",
+            "count_to": 0,
+            "label": "bio-washed, pre-shrunk"
           }
         },
         "sp3": {
