@@ -193,11 +193,11 @@
           "type": "stat",
           "settings": {
             "icon": "map",
-            "number": "27000",
+            "number": "Founder on WhatsApp",
             "prefix": "",
-            "suffix": "+",
-            "count_to": 27000,
-            "label": "Pincodes Served"
+            "suffix": "",
+            "count_to": 0,
+            "label": "you'll get a reply"
           }
         }
       },
