@@ -81,7 +81,7 @@
         ],
         "settings": {
           "logo": "shopify://shop_images/Moreons_Logo.png",
-          "menu": "",
+          "menu": "main-menu",
           "show_announcement": true,
           "show_engage_section": true,
           "find_store_url": "",
