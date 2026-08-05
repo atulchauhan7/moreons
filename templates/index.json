@@ -292,7 +292,7 @@
         "tc2": {
           "type": "category",
           "settings": {
-            "label": "Coord Sets",
+            "label": "",
             "link": "shopify://collections/co-ord-sets"
           }
         },
@@ -317,6 +317,7 @@
         "tc3",
         "tc4"
       ],
+      "disabled": true,
       "settings": {
         "show_section": true,
         "title_bold": "Trending",
@@ -343,29 +344,37 @@
         "tab1": {
           "type": "tab",
           "settings": {
-            "tab_label": "Best Seller",
-            "collection": "best-seller"
+            "tab_label": "Graphic tees",
+            "collection": "graphics-tshirt"
           }
         },
         "tab2": {
           "type": "tab",
           "settings": {
-            "tab_label": "Salwar",
-            "collection": "farshi-salwar-set"
+            "tab_label": "Embroidered tees",
+            "collection": "embroidered-tees"
           }
         },
         "tab3": {
           "type": "tab",
           "settings": {
-            "tab_label": "Coord",
-            "collection": "co-ord-sets"
+            "tab_label": "Oversized Tees",
+            "collection": "oversized-solids"
+          }
+        },
+        "tab_h4cgJk": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Basic Tees",
+            "collection": "basic-tees"
           }
         }
       },
       "block_order": [
         "tab1",
         "tab2",
-        "tab3"
+        "tab3",
+        "tab_h4cgJk"
       ],
       "settings": {
         "subtitle": "Shop By",
